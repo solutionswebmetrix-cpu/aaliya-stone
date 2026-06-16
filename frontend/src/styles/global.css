@@ -1,0 +1,62 @@
+@import './variables.css';
+@import './navbar.css';
+@import './hero.css';
+@import './about.css';
+@import './products.css';
+@import './collections.css';
+@import './gallery.css';
+@import './contact.css';
+@import './footer.css';
+@import './animations.css';
+@import './responsive.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--black);
+  color: var(--white);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+}
+
+.serif {
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.gold-text {
+  color: var(--gold);
+}
+
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s ease;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
