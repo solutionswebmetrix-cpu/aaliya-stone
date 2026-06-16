@@ -80,7 +80,7 @@ const Navbar = () => {
                 if (hideTimeout) clearTimeout(hideTimeout);
               }}
             >
-              <div className={`megamenu-content ${activeCategory ? 'active' : ''}`}>
+              <div className="megamenu-content">
                 {/* Left Panel: Main Categories */}
                 <div 
                   className="megamenu-categories"
@@ -102,52 +102,54 @@ const Navbar = () => {
                   ))}
                 </div>
                 
-                {/* Right Panel: Subcategories */}
-                <div 
-                  className={`megamenu-subcategories ${activeCategory ? 'active' : ''}`}
-                  onMouseEnter={() => handleMouseEnter(null)}
-                  onMouseLeave={handleMouseLeave}
-                >
-                  {(() => {
-                    const currentCat = categories.find(c => c.id === activeCategory);
-                    if (!currentCat) return null;
-                    return (
-                      <>
-                        <div className="megamenu-subheader">
-                          <h3>{currentCat.name}</h3>
-                          <Link to={`/category/${currentCat.slug}`} onClick={() => { setMegaMenuOpen(false); setActiveCategory(null); }}>
-                            View All
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                            </svg>
-                          </Link>
-                        </div>
-                        <div className="megamenu-sublist">
-                          {currentCat.subcategories?.length > 0 ? (
-                            currentCat.subcategories.map((sub) => (
+                {/* Right Panel: Subcategories - Conditionally Rendered */}
+                {activeCategory && (
+                  <div 
+                    className="megamenu-subcategories"
+                    onMouseEnter={() => handleMouseEnter(null)}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    {(() => {
+                      const currentCat = categories.find(c => c.id === activeCategory);
+                      if (!currentCat) return null;
+                      return (
+                        <>
+                          <div className="megamenu-subheader">
+                            <h3>{currentCat.name}</h3>
+                            <Link to={`/category/${currentCat.slug}`} onClick={() => { setMegaMenuOpen(false); setActiveCategory(null); }}>
+                              View All
+                              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                              </svg>
+                            </Link>
+                          </div>
+                          <div className="megamenu-sublist">
+                            {currentCat.subcategories?.length > 0 ? (
+                              currentCat.subcategories.map((sub) => (
+                                <Link
+                                  key={sub.id}
+                                  to={`/subcategory/${sub.slug}`}
+                                  className="megamenu-sublink"
+                                  onClick={() => { setMegaMenuOpen(false); setActiveCategory(null); }}
+                                >
+                                  {sub.name}
+                                </Link>
+                              ))
+                            ) : (
                               <Link
-                                key={sub.id}
-                                to={`/subcategory/${sub.slug}`}
+                                to={`/category/${currentCat.slug}`}
                                 className="megamenu-sublink"
                                 onClick={() => { setMegaMenuOpen(false); setActiveCategory(null); }}
                               >
-                                {sub.name}
+                                View {currentCat.name} Collection
                               </Link>
-                            ))
-                          ) : (
-                            <Link
-                              to={`/category/${currentCat.slug}`}
-                              className="megamenu-sublink"
-                              onClick={() => { setMegaMenuOpen(false); setActiveCategory(null); }}
-                            >
-                              View {currentCat.name} Collection
-                            </Link>
-                          )}
-                        </div>
-                      </>
-                    );
-                  })()}
-                </div>
+                            )}
+                          </div>
+                        </>
+                      );
+                    })()}
+                  </div>
+                )}
               </div>
             </div>
           </li>

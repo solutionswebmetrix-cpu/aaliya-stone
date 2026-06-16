@@ -71,12 +71,12 @@
   background-color: rgba(18, 18, 18, 0.98);
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 0;
-  min-width: 800px;
   max-width: 90vw;
   max-height: 80vh;
   overflow: hidden;
   display: none;
   opacity: 0;
+  width: auto;
   transition: all 0.3s ease;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
   border-radius: 12px;
@@ -90,14 +90,9 @@
 }
 
 .megamenu-content {
-  display: grid;
-  grid-template-columns: 280px 0fr;
+  display: flex;
   min-height: 400px;
-  transition: grid-template-columns 0.25s ease;
-}
-
-.megamenu-content.active {
-  grid-template-columns: 280px 1fr;
+  width: auto;
 }
 
 /* Left Panel: Categories */
@@ -107,6 +102,8 @@
   padding: 1.5rem 0;
   overflow-y: auto;
   max-height: 80vh;
+  width: 280px;
+  flex-shrink: 0;
 }
 
 .megamenu-category {
@@ -165,16 +162,18 @@
   padding: 1.75rem 2rem;
   overflow-y: auto;
   max-height: 80vh;
+  width: 450px;
+  flex-shrink: 0;
   opacity: 0;
   transform: translateX(20px);
-  transition: opacity 0.25s ease, transform 0.25s ease;
-  pointer-events: none;
+  animation: slideIn 0.25s ease forwards;
 }
 
-.megamenu-subcategories.active {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .megamenu-subheader {
