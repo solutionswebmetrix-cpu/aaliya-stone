@@ -20,8 +20,36 @@ gsap.registerPlugin(ScrollTrigger);
 const Home = () => {
   const heroRef = useRef(null);
   const allProducts = getAllProducts();
-  // Get first 9 products as featured products
-  const products = allProducts.slice(0, 9);
+  // Get a mix of products from different categories (not just marble!)
+  const getMixedProducts = () => {
+    const categoryGroups = {};
+    allProducts.forEach(product => {
+      const cat = product.categorySlug;
+      if (!categoryGroups[cat]) categoryGroups[cat] = [];
+      categoryGroups[cat].push(product);
+    });
+    const mixed = [];
+    // Collect one product from each category until we have 9
+    let catIndex = 0;
+    const categories = Object.keys(categoryGroups);
+    while (mixed.length < 9 && categories.length > 0) {
+      const currentCat = categories[catIndex % categories.length];
+      if (categoryGroups[currentCat].length > 0) {
+        mixed.push(categoryGroups[currentCat].shift());
+      }
+      catIndex++;
+    }
+    // If we still need more, just add remaining products
+    if (mixed.length < 9) {
+      allProducts.forEach(product => {
+        if (!mixed.find(p => p.id === product.id) && mixed.length <9) {
+          mixed.push(product);
+        }
+      });
+    }
+    return mixed;
+  }
+  const products = getMixedProducts();
   const loading = false;
 
   useEffect(() => {
