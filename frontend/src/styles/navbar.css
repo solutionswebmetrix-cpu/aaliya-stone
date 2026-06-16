@@ -91,8 +91,13 @@
 
 .megamenu-content {
   display: grid;
-  grid-template-columns: 280px 1fr;
+  grid-template-columns: 280px 0fr;
   min-height: 400px;
+  transition: grid-template-columns 0.25s ease;
+}
+
+.megamenu-content.active {
+  grid-template-columns: 280px 1fr;
 }
 
 /* Left Panel: Categories */
@@ -160,6 +165,16 @@
   padding: 1.75rem 2rem;
   overflow-y: auto;
   max-height: 80vh;
+  opacity: 0;
+  transform: translateX(20px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.megamenu-subcategories.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
 }
 
 .megamenu-subheader {

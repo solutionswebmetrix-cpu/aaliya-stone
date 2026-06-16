@@ -8,6 +8,7 @@ const Navbar = () => {
   const categories = getAllCategories();
   const [megaMenuOpen, setMegaMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState(null);
+  const [hideTimeout, setHideTimeout] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [expandedMobileCat, setExpandedMobileCat] = useState(null);
 
@@ -18,6 +19,25 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Handle mouse enter on category or submenu
+  const handleMouseEnter = (categoryId = null) => {
+    if (hideTimeout) {
+      clearTimeout(hideTimeout);
+      setHideTimeout(null);
+    }
+    if (categoryId !== null) {
+      setActiveCategory(categoryId);
+    }
+  };
+
+  // Handle mouse leave with delay
+  const handleMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setActiveCategory(null);
+    }, 200);
+    setHideTimeout(timeout);
+  };
 
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
@@ -44,10 +64,7 @@ const Navbar = () => {
             <Link 
               to="/products" 
               className="nav-link"
-              onMouseEnter={() => {
-                setMegaMenuOpen(true);
-                if (!activeCategory && categories.length > 0) setActiveCategory(categories[0].id);
-              }}
+              onMouseEnter={() => setMegaMenuOpen(true)}
               onClick={() => setMobileMenuOpen(false)}
             >
               Products
@@ -60,16 +77,20 @@ const Navbar = () => {
               onMouseLeave={() => {
                 setMegaMenuOpen(false);
                 setActiveCategory(null);
+                if (hideTimeout) clearTimeout(hideTimeout);
               }}
             >
-              <div className="megamenu-content">
+              <div className={`megamenu-content ${activeCategory ? 'active' : ''}`}>
                 {/* Left Panel: Main Categories */}
-                <div className="megamenu-categories">
+                <div 
+                  className="megamenu-categories"
+                  onMouseLeave={handleMouseLeave}
+                >
                   {categories.map((cat) => (
                     <div
                       key={cat.id}
                       className={`megamenu-category ${activeCategory === cat.id ? 'active' : ''}`}
-                      onMouseEnter={() => setActiveCategory(cat.id)}
+                      onMouseEnter={() => handleMouseEnter(cat.id)}
                     >
                       <Link to={`/category/${cat.slug}`} onClick={() => { setMegaMenuOpen(false); setActiveCategory(null); }}>
                         {cat.name}
@@ -82,7 +103,11 @@ const Navbar = () => {
                 </div>
                 
                 {/* Right Panel: Subcategories */}
-                <div className="megamenu-subcategories">
+                <div 
+                  className={`megamenu-subcategories ${activeCategory ? 'active' : ''}`}
+                  onMouseEnter={() => handleMouseEnter(null)}
+                  onMouseLeave={handleMouseLeave}
+                >
                   {(() => {
                     const currentCat = categories.find(c => c.id === activeCategory);
                     if (!currentCat) return null;
