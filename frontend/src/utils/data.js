@@ -2190,24 +2190,7 @@ const productDefinitions = [
     imageAlt: "Red New Granite with vibrant red tones and modern appearance",
     tags: ["Red New Granite", "Granite", "Red Stone", "Modern Design", "Natural Stone", "Premium Stone"]
   },
-  {
-    id: 2007,
-    name: "Polished Red Granite Slab",
-    slug: "polished-red-granite-slab",
-    categorySlug: "granite",
-    subcategorySlug: "red-granite",
-    image: "Polished granite slab.png",
-    description: "Polished Red Granite Slab showcases a stunning, mirror-like polish that enhances the deep red tones and beautiful mineral patterns of this exceptional granite. This large format slab creates a seamless, luxurious appearance that elevates any space to the highest level of sophistication and style.",
-    features: ["Mirror-like polished finish", "Deep, rich red tones", "Beautiful mineral patterns", "Large format slab", "Exceptionally durable and strong", "Resistant to scratches and heat", "Luxurious, seamless appearance", "Suitable for indoor and outdoor use"],
-    benefits: ["Creates luxurious, seamless spaces", "Enhances natural stone beauty", "Adds sophistication and elegance", "Durable for generations of use", "Resistant to everyday wear and tear", "Perfect for creating bold focal points", "Easy to clean and maintain", "Excellent long-term investment in luxury"],
-    applications: ["Grand kitchen countertops and islands", "Luxury bathroom vanities and surrounds", "Magnificent flooring for high-end interiors", "Stunning fireplace surrounds", "Elegant wall cladding and feature walls", "High-end commercial spaces", "Hotel and hospitality interiors", "Luxury residential designs"],
-    maintenance: "Clean regularly with pH-neutral stone cleaner, avoid harsh chemicals and abrasive materials, wipe up spills promptly, and seal annually to maintain the polished finish and protect the stone.",
-    whyChoose: "Polished Red Granite Slab offers a stunning mirror-like polish and deep red tones, perfect for creating luxurious, seamless spaces that exude sophistication and style.",
-    seoTitle: "Polished Red Granite Slab | Luxurious Natural Stone",
-    metaDescription: "Discover beautiful Polished Red Granite Slab with mirror-like finish and deep red tones. Perfect for luxurious interior and exterior design.",
-    imageAlt: "Polished Red Granite Slab with mirror-like finish and deep red tones",
-    tags: ["Polished Red Granite", "Granite Slab", "Red Stone", "Luxury Design", "Natural Stone", "Premium Stone"]
-  },
+
   {
     id: 2008,
     name: "Green Granite",
