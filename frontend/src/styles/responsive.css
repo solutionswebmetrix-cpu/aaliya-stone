@@ -19,12 +19,21 @@
     grid-template-columns: 1fr;
   }
   
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  /* Hide Mega Menu on Mobile/Tablet */
+  .megamenu {
+    display: none !important;
+  }
+  
+  /* Keep Nav Menu on mobile */
   .nav-menu {
     display: none;
   }
-  
-  .product-grid {
-    grid-template-columns: repeat(3, 1fr);
+  .nav-menu.active {
+    display: flex;
   }
 }
 
