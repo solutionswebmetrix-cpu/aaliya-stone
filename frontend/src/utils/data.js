@@ -2209,42 +2209,7 @@ const productDefinitions = [
     imageAlt: "Green Granite with beautiful natural green tones and mineral patterns",
     tags: ["Green Granite", "Granite", "Green Stone", "Nature-inspired Design", "Natural Stone", "Premium Stone"]
   },
-  {
-    id: 2009,
-    name: "Green Granite Slab",
-    slug: "green-granite-slab",
-    categorySlug: "granite",
-    subcategorySlug: "green-granite",
-    image: "Granite slab in stone yard.png",
-    description: "Green Granite Slab offers a large, continuous surface that showcases the full beauty of green granite with its natural mineral patterns and rich green tones. This stunning slab creates a seamless, organic appearance that brings the beauty of nature into your space in a grand, impressive way.",
-    features: ["Large format green granite slab", "Rich, natural green tones", "Beautiful mineral patterns", "Exceptionally durable and strong", "Resistant to scratches and heat", "Seamless, organic appearance", "Suitable for indoor and outdoor use", "Low maintenance requirements"],
-    benefits: ["Creates grand, impressive spaces", "Adds organic natural beauty", "Durable for generations of use", "Resistant to everyday wear and tear", "Perfect for creating bold focal points", "Versatile design applications", "Easy to clean and maintain", "Excellent long-term investment"],
-    applications: ["Grand kitchen countertops and islands", "Luxury bathroom vanities and surrounds", "Magnificent flooring for high-end interiors", "Stunning fireplace surrounds", "Elegant wall cladding and feature walls", "Outdoor kitchens and patio areas", "Hotel and hospitality interiors", "Luxury residential designs"],
-    maintenance: "Clean regularly with pH-neutral stone cleaner, avoid harsh chemicals and abrasive materials, wipe up spills promptly, and seal annually to maintain protection and enhance natural beauty.",
-    whyChoose: "Green Granite Slab offers large format size and rich green tones, perfect for creating grand, impressive spaces that showcase the full beauty of natural granite.",
-    seoTitle: "Green Granite Slab | Grand Natural Stone",
-    metaDescription: "Discover beautiful Green Granite Slab with rich green tones and large format. Perfect for grand interior and exterior design projects.",
-    imageAlt: "Green Granite Slab in stone yard with rich green tones and natural patterns",
-    tags: ["Green Granite Slab", "Granite", "Green Stone", "Large Format", "Natural Stone", "Premium Stone"]
-  },
-  {
-    id: 2010,
-    name: "Polished Green Granite",
-    slug: "polished-green-granite",
-    categorySlug: "granite",
-    subcategorySlug: "green-granite",
-    image: "Polished granite.png",
-    description: "Polished Green Granite features a stunning, mirror-like polish that enhances the beautiful green tones and intricate mineral patterns of this exceptional granite. This polished finish creates a luxurious, sophisticated appearance that elevates any space to the highest level of elegance.",
-    features: ["Mirror-like polished finish", "Beautiful green tones", "Intricate mineral patterns", "Exceptionally durable and strong", "Resistant to scratches and heat", "Luxurious, sophisticated appearance", "Suitable for indoor and outdoor use", "Low maintenance requirements"],
-    benefits: ["Creates luxurious, sophisticated spaces", "Enhances natural stone beauty", "Adds elegance and refinement", "Durable for generations of use", "Resistant to everyday wear and tear", "Perfect for creating elegant focal points", "Easy to clean and maintain", "Excellent long-term investment in luxury"],
-    applications: ["Elegant kitchen countertops and islands", "Luxury bathroom vanities and surrounds", "Sophisticated flooring for high-end interiors", "Stunning fireplace surrounds", "Elegant wall cladding and feature walls", "High-end commercial spaces", "Hotel and hospitality interiors", "Luxury residential designs"],
-    maintenance: "Clean regularly with pH-neutral stone cleaner, avoid harsh chemicals and abrasive materials, wipe up spills promptly, and seal annually to maintain the polished finish and protect the stone.",
-    whyChoose: "Polished Green Granite offers a stunning mirror-like polish and beautiful green tones, perfect for creating luxurious, sophisticated spaces that exude elegance and refinement.",
-    seoTitle: "Polished Green Granite | Luxurious Elegance",
-    metaDescription: "Discover beautiful Polished Green Granite with mirror-like finish and green tones. Perfect for luxurious interior and exterior design.",
-    imageAlt: "Polished Green Granite with mirror-like finish and beautiful green tones",
-    tags: ["Polished Green Granite", "Granite", "Green Stone", "Luxury Design", "Natural Stone", "Premium Stone"]
-  },
+
   {
     id: 2011,
     name: "Black Granite",
