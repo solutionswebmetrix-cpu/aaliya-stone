@@ -2336,24 +2336,7 @@ const productDefinitions = [
     imageAlt: "New Marble Floor with beautiful, fresh marble design",
     tags: ["Marble Floor", "Flooring & Inlay Collection", "Modern Design", "Natural Stone", "Premium Stone", "Interior Design"]
   },
-  {
-    id: 18006,
-    name: "Monument Marble Floor",
-    slug: "monument-marble-floor",
-    categorySlug: "flooring-inlay-collection",
-    subcategorySlug: "marble-floor-medallions",
-    image: "Monument marble floor.png",
-    description: "Monument Marble Floor creates a grand, monumental atmosphere in important and significant spaces. This stunning marble flooring features a timeless, dignified design that honors history and significance, making it perfect for monuments, government buildings, and important public spaces.",
-    features: ["Monumental marble flooring", "Grand, dignified aesthetic", "Timeless, classic design", "Exceptionally durable for generations", "Honors history and significance", "Adds profound value to spaces", "Creates important, meaningful atmospheres", "Excellent long-term investment"],
-    benefits: ["Creates grand, monumental atmospheres", "Honors history and significance", "Durable for generations to come", "Perfect for important public spaces", "Adds profound value and meaning", "Timeless design that never dates", "Creates important, meaningful spaces", "Excellent investment in legacy"],
-    applications: ["Monument and memorial spaces", "Government and public buildings", "Museum and cultural institutions", "Important historical spaces", "Grand public lobbies", "Significant commercial spaces", "Legacy-focused projects", "Important design installations"],
-    maintenance: "Clean gently with pH-neutral stone cleaner, avoid harsh chemicals and abrasive materials, and maintain with care to preserve the marble's beauty and significance for generations.",
-    whyChoose: "Monument Marble Floor creates a grand, monumental atmosphere in important spaces, featuring a timeless, dignified design that honors history and significance.",
-    seoTitle: "Monument Marble Floor | Grand Timeless Significance",
-    metaDescription: "Discover beautiful Monument Marble Floor. Perfect for creating grand, monumental spaces that honor history.",
-    imageAlt: "Monument Marble Floor with grand, dignified design",
-    tags: ["Marble Floor", "Flooring & Inlay Collection", "Monumental Design", "Historical Spaces", "Natural Stone", "Premium Stone"]
-  }
+
 ];
 
 
