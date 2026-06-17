@@ -20,23 +20,27 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Handle mouse enter on category or submenu
-  const handleMouseEnter = (categoryId = null) => {
+  // Handle mouse leave from entire mega menu with delay
+  const handleMegaMenuMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setActiveCategory(null);
+      setMegaMenuOpen(false);
+    }, 250);
+    setHideTimeout(timeout);
+  };
+
+  // Handle mouse enter to clear any existing timeout
+  const handleMegaMenuMouseEnter = () => {
     if (hideTimeout) {
       clearTimeout(hideTimeout);
       setHideTimeout(null);
     }
-    if (categoryId !== null) {
-      setActiveCategory(categoryId);
-    }
+    setMegaMenuOpen(true);
   };
 
-  // Handle mouse leave with delay
-  const handleMouseLeave = () => {
-    const timeout = setTimeout(() => {
-      setActiveCategory(null);
-    }, 200);
-    setHideTimeout(timeout);
+  // Handle category hover
+  const handleCategoryHover = (categoryId) => {
+    setActiveCategory(categoryId);
   };
 
   return (
@@ -64,7 +68,7 @@ const Navbar = () => {
             <Link 
               to="/products" 
               className="nav-link"
-              onMouseEnter={() => setMegaMenuOpen(true)}
+              onMouseEnter={handleMegaMenuMouseEnter}
               onClick={() => setMobileMenuOpen(false)}
             >
               Products
@@ -73,24 +77,17 @@ const Navbar = () => {
             {/* Mega Menu for Desktop */}
             <div 
               className="megamenu"
-              onMouseEnter={() => setMegaMenuOpen(true)}
-              onMouseLeave={() => {
-                setMegaMenuOpen(false);
-                setActiveCategory(null);
-                if (hideTimeout) clearTimeout(hideTimeout);
-              }}
+              onMouseEnter={handleMegaMenuMouseEnter}
+              onMouseLeave={handleMegaMenuMouseLeave}
             >
               <div className="megamenu-content">
                 {/* Left Panel: Main Categories */}
-                <div 
-                  className="megamenu-categories"
-                  onMouseLeave={handleMouseLeave}
-                >
+                <div className="megamenu-categories">
                   {categories.map((cat) => (
                     <div
                       key={cat.id}
                       className={`megamenu-category ${activeCategory === cat.id ? 'active' : ''}`}
-                      onMouseEnter={() => handleMouseEnter(cat.id)}
+                      onMouseEnter={() => handleCategoryHover(cat.id)}
                     >
                       <Link to={`/category/${cat.slug}`} onClick={() => { setMegaMenuOpen(false); setActiveCategory(null); }}>
                         {cat.name}
@@ -104,11 +101,7 @@ const Navbar = () => {
                 
                 {/* Right Panel: Subcategories - Conditionally Rendered */}
                 {activeCategory && (
-                  <div 
-                    className="megamenu-subcategories"
-                    onMouseEnter={() => handleMouseEnter(null)}
-                    onMouseLeave={handleMouseLeave}
-                  >
+                  <div className="megamenu-subcategories">
                     {(() => {
                       const currentCat = categories.find(c => c.id === activeCategory);
                       if (!currentCat) return null;
