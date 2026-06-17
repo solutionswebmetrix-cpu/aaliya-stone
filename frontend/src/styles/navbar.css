@@ -428,6 +428,8 @@
     gap: 1.5rem;
     display: none;
     border-top: 1px solid rgba(255, 255, 255, 0.05);
+    max-height: 80vh;
+    overflow-y: auto;
   }
 
   .nav-menu.active {
@@ -446,5 +448,14 @@
 
   .dropdown.active .dropdown-menu {
     display: grid;
+  }
+
+  .mobile-product-menu {
+    width: 100%;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    margin-top: 1rem;
+    padding-top: 1rem;
+    max-height: 60vh;
+    overflow-y: auto;
   }
 }
