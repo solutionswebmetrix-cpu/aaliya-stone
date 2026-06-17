@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { getCategoryBySlug, getProductsByCategory } from '../utils/data';
+import { getCategoryBySlug, getProductsByCategory, getProductsBySubcategory } from '../utils/data';
 import { getProductImage } from '../utils/productImages';
 import '../styles/products.css';
 import gsap from 'gsap';
@@ -14,6 +14,15 @@ const CategoryPage = () => {
   const { slug } = useParams();
   const category = getCategoryBySlug(slug);
   const products = getProductsByCategory(slug);
+
+  // Helper to get first product image for a subcategory
+  const getSubcategoryImage = (subSlug) => {
+    const subProducts = getProductsBySubcategory(subSlug);
+    if (subProducts.length > 0) {
+      return getProductImage(subProducts[0].image, subProducts[0].name);
+    }
+    return null;
+  };
 
   useEffect(() => {
     // ScrollTrigger for section header
@@ -91,27 +100,34 @@ const CategoryPage = () => {
             <div style={{ marginBottom: '60px' }}>
               <h3 style={{ color: 'var(--gold)', marginBottom: '30px', fontSize: '1.5rem' }}>Subcategories</h3>
               <div className="product-grid">
-                {category.subcategories.map((sub) => (
-                  <Link key={sub.id} to={`/subcategory/${sub.slug}`} className="product-card" style={{ textDecoration: 'none' }}>
-                    <div className="product-image-wrapper" style={{ background: 'linear-gradient(135deg, #1a1a1a, #2a2a2a)', display: 'flex', alignItems: 'center', justifyContent: 'center', minHeight: '250px' }}>
-                      <div style={{ color: 'var(--gold)', fontSize: '3rem' }}>
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="64" height="64">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-                        </svg>
+                {category.subcategories.map((sub) => {
+                  const subImage = getSubcategoryImage(sub.slug);
+                  return (
+                    <Link key={sub.id} to={`/subcategory/${sub.slug}`} className="product-card" style={{ textDecoration: 'none' }}>
+                      <div className="product-image-wrapper" style={{ background: subImage ? 'transparent' : 'linear-gradient(135deg, #1a1a1a, #2a2a2a)' }}>
+                        {subImage ? (
+                          <img src={subImage} alt={sub.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                        ) : (
+                          <div style={{ color: 'var(--gold)', fontSize: '3rem', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="64" height="64">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+                            </svg>
+                          </div>
+                        )}
                       </div>
-                    </div>
-                    <div className="product-content">
-                      <div className="product-category">{category.name}</div>
-                      <h3 className="product-name">{sub.name}</h3>
-                      <div className="product-link" style={{ textDecoration: 'none', color: 'var(--gold)' }}>
-                        View Products
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                        </svg>
+                      <div className="product-content">
+                        <div className="product-category">{category.name}</div>
+                        <h3 className="product-name">{sub.name}</h3>
+                        <div className="product-link" style={{ textDecoration: 'none', color: 'var(--gold)' }}>
+                          View Products
+                          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                          </svg>
+                        </div>
                       </div>
-                    </div>
-                  </Link>
-                ))}
+                    </Link>
+                  );
+                })}
               </div>
             </div>
           )}
