@@ -1,4 +1,10 @@
 /* Navbar Styles */
+.navbar,
+.navbar-container,
+.search-container {
+  overflow: visible !important;
+}
+
 .navbar {
   position: fixed;
   top: 0;
@@ -21,6 +27,120 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 1rem;
+}
+
+/* Search Container */
+.search-container {
+  position: relative;
+  z-index: 100001;
+}
+
+.search-toggle {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.search-toggle:hover {
+  color: var(--gold);
+}
+
+.search-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.search-dropdown {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  right: auto;
+  width: 400px;
+  max-width: calc(100vw - 20px);
+  z-index: 999999;
+  background-color: rgba(18, 18, 18, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+.search-results {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.search-dropdown input {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+.search-dropdown input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.search-results {
+  max-height: 400px;
+  overflow-y: auto;
+}
+
+.search-result-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.search-result-item:hover {
+  background-color: rgba(212, 175, 55, 0.1);
+  color: var(--gold);
+}
+
+.search-result-item.view-all {
+  font-weight: 600;
+  color: var(--gold);
+  justify-content: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.search-result-item.no-result {
+  color: rgba(255, 255, 255, 0.5);
+  justify-content: center;
+}
+
+.search-result-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.search-result-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.search-result-name {
+  font-weight: 500;
+}
+
+.search-result-category {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .logo {
@@ -416,6 +536,11 @@
 @media (max-width: 968px) {
   .navbar {
     padding: 1rem 0;
+  }
+
+  .search-dropdown {
+    left: 0;
+    right: auto;
   }
 
   .logo-img {

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { getAllCategories, getProductsBySubcategory } from '../utils/data';
+import React, { useEffect, useState, useRef } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { getAllCategories, getProductsBySubcategory, searchProducts } from '../utils/data';
 import { getProductImage } from '../utils/productImages';
 import logo from '../assets/logo.png';
 
@@ -12,6 +12,11 @@ const Navbar = () => {
   const [hideTimeout, setHideTimeout] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [expandedMobileCat, setExpandedMobileCat] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [searchOpen, setSearchOpen] = useState(false);
+  const searchContainerRef = useRef(null);
+  const navigate = useNavigate();
+  const searchResults = searchProducts(searchQuery);
 
   // Prevent background scrolling when mobile menu is open
   useEffect(() => {
@@ -33,6 +38,17 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close search and mega menu when clicking outside
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (searchContainerRef.current && !searchContainerRef.current.contains(event.target)) {
+        setSearchOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
   // Handle mouse leave from entire mega menu with delay
   const handleMegaMenuMouseLeave = () => {
     const timeout = setTimeout(() => {
@@ -49,6 +65,23 @@ const Navbar = () => {
       setHideTimeout(null);
     }
     setMegaMenuOpen(true);
+    // Set first category as active if none is active
+    if (!activeCategory && categories.length > 0) {
+      setActiveCategory(categories[0].id);
+    }
+  };
+
+  // Handle mouse enter on Products link
+  const handleProductsLinkMouseEnter = () => {
+    if (hideTimeout) {
+      clearTimeout(hideTimeout);
+      setHideTimeout(null);
+    }
+    setMegaMenuOpen(true);
+    // Set first category as active
+    if (categories.length > 0) {
+      setActiveCategory(categories[0].id);
+    }
   };
 
   // Handle category hover
@@ -68,14 +101,89 @@ const Navbar = () => {
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="container navbar-container">
-        <Link to="/" className="logo" onClick={() => {setMobileMenuOpen(false); setMegaMenuOpen(false); setActiveCategory(null);}}>
+        <Link to="/" className="logo" onClick={() => {setMobileMenuOpen(false); setMegaMenuOpen(false); setActiveCategory(null); setSearchOpen(false);}}>
           <img src={logo} alt="Aaliya Stones Logo" className="logo-img" />
         </Link>
+        
+        {/* Search */}
+        <div className="search-container" ref={searchContainerRef}>
+          <button 
+            className="search-toggle"
+            onClick={() => setSearchOpen(!searchOpen)}
+            aria-label="Toggle search"
+          >
+            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+            </svg>
+          </button>
+          
+          {searchOpen && (
+            <div className="search-dropdown">
+              <input
+                type="text"
+                placeholder="Search products..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' && searchQuery.trim()) {
+                    navigate(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
+                    setSearchOpen(false);
+                    setSearchQuery('');
+                  }
+                }}
+                autoFocus
+              />
+              
+              {searchQuery.trim() && (
+                <div className="search-results">
+                  {searchResults.length > 0 ? (
+                    <>
+                      {searchResults.slice(0, 5).map((product) => (
+                        <Link
+                          key={product.id}
+                          to={`/product/${product.slug}`}
+                          className="search-result-item"
+                          onClick={() => {
+                            setSearchOpen(false);
+                            setSearchQuery('');
+                          }}
+                        >
+                          <img src={getProductImage(product.image, product.name)} alt={product.name} />
+                          <div className="search-result-info">
+                            <span className="search-result-name">{product.name}</span>
+                            <span className="search-result-category">{product.category?.name || ''}</span>
+                          </div>
+                        </Link>
+                      ))}
+                      <Link
+                        to={`/search?q=${encodeURIComponent(searchQuery.trim())}`}
+                        className="search-result-item view-all"
+                        onClick={() => {
+                          setSearchOpen(false);
+                          setSearchQuery('');
+                        }}
+                      >
+                        View all results
+                      </Link>
+                    </>
+                  ) : (
+                    <div className="search-result-item no-result">
+                      No products found
+                    </div>
+                  )}
+                </div>
+              )}
+            </div>
+          )}
+        </div>
         
         {/* Mobile Toggle */}
         <button 
           className="mobile-menu-toggle"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          onClick={() => {
+            setMobileMenuOpen(!mobileMenuOpen);
+            setSearchOpen(false);
+          }}
           aria-label="Toggle navigation"
         >
           <span></span>
@@ -86,11 +194,11 @@ const Navbar = () => {
         <ul className={`nav-menu ${mobileMenuOpen ? 'active' : ''}`}>
           <li><Link to="/" className="nav-link" onClick={() => setMobileMenuOpen(false)}>Home</Link></li>
           <li><a href="/#about" className="nav-link" onClick={() => setMobileMenuOpen(false)}>About</a></li>
-          <li className={`megamenu-wrapper ${megaMenuOpen ? 'active' : ''}`}>
+          <li className={`megamenu-wrapper ${megaMenuOpen ? 'active' : ''}`} onMouseLeave={handleMegaMenuMouseLeave}>
             <Link 
               to="/products" 
               className="nav-link"
-              onMouseEnter={handleMegaMenuMouseEnter}
+              onMouseEnter={handleProductsLinkMouseEnter}
               onClick={() => setMobileMenuOpen(false)}
             >
               Products
@@ -100,7 +208,6 @@ const Navbar = () => {
             <div 
               className="megamenu"
               onMouseEnter={handleMegaMenuMouseEnter}
-              onMouseLeave={handleMegaMenuMouseLeave}
             >
               <div className="megamenu-content">
                 {/* Left Panel: Main Categories */}

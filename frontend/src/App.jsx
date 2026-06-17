@@ -4,6 +4,7 @@ import Products from './pages/Products';
 import CategoryPage from './pages/CategoryPage';
 import SubcategoryPage from './pages/SubcategoryPage';
 import ProductDetailPage from './pages/ProductDetailPage';
+import SearchPage from './pages/SearchPage';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminCategories from './pages/AdminCategories';
@@ -19,6 +20,7 @@ function App() {
       <Route path="/category/:slug" element={<CategoryPage />} />
       <Route path="/subcategory/:slug" element={<SubcategoryPage />} />
       <Route path="/product/:slug" element={<ProductDetailPage />} />
+      <Route path="/search" element={<SearchPage />} />
       <Route path="/:categorySlug/:subcategorySlug/:slug" element={<ProductDetailPage />} />
       <Route path="/admin" element={<AdminLogin />} />
       <Route path="/admin/dashboard" element={<AdminDashboard />} />
