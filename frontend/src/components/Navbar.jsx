@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getAllCategories } from '../utils/data';
+import { getAllCategories, getProductsBySubcategory } from '../utils/data';
+import { getProductImage } from '../utils/productImages';
 import logo from '../assets/logo.png';
 
 const Navbar = () => {
@@ -41,6 +42,15 @@ const Navbar = () => {
   // Handle category hover
   const handleCategoryHover = (categoryId) => {
     setActiveCategory(categoryId);
+  };
+
+  // Helper to get first product image for a subcategory
+  const getSubcategoryImage = (subSlug) => {
+    const products = getProductsBySubcategory(subSlug);
+    if (products.length > 0) {
+      return getProductImage(products[0].image, products[0].name);
+    }
+    return null;
   };
 
   return (
@@ -118,16 +128,24 @@ const Navbar = () => {
                           </div>
                           <div className="megamenu-sublist">
                             {currentCat.subcategories?.length > 0 ? (
-                              currentCat.subcategories.map((sub) => (
-                                <Link
-                                  key={sub.id}
-                                  to={`/subcategory/${sub.slug}`}
-                                  className="megamenu-sublink"
-                                  onClick={() => { setMegaMenuOpen(false); setActiveCategory(null); }}
-                                >
-                                  {sub.name}
-                                </Link>
-                              ))
+                              currentCat.subcategories.map((sub) => {
+                                const subImage = getSubcategoryImage(sub.slug);
+                                return (
+                                  <Link
+                                    key={sub.id}
+                                    to={`/subcategory/${sub.slug}`}
+                                    className="megamenu-sublink"
+                                    onClick={() => { setMegaMenuOpen(false); setActiveCategory(null); }}
+                                  >
+                                    {subImage && (
+                                      <div className="megamenu-sublink-image">
+                                        <img src={subImage} alt={sub.name} />
+                                      </div>
+                                    )}
+                                    <span className="megamenu-sublink-text">{sub.name}</span>
+                                  </Link>
+                                );
+                              })
                             ) : (
                               <Link
                                 to={`/category/${currentCat.slug}`}
