@@ -6,7 +6,8 @@
   right: 0;
   z-index: 10000; /* Increase z-index to be above everything */
   padding: 2rem 0;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
+  background: transparent;
 }
 
 .navbar.scrolled {
@@ -413,6 +414,14 @@
 }
 
 @media (max-width: 968px) {
+  .navbar {
+    padding: 1rem 0;
+  }
+
+  .logo-img {
+    height: 60px;
+  }
+
   .mobile-menu-toggle {
     display: flex;
     z-index: 100000;

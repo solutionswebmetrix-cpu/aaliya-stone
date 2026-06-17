@@ -1,15 +1,7 @@
 /* Responsive Styles */
 
-/* Tablet: Hero height 80vh */
+/* Tablet and Mobile: Hero height 100vh */
 @media (max-width: 992px) {
-  .hero {
-    height: 80vh;
-  }
-  
-  .hero-title {
-    font-size: 3rem;
-  }
-  
   .section-title {
     font-size: 2.5rem;
   }
@@ -19,34 +11,30 @@
     grid-template-columns: 1fr;
   }
   
-  .product-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  
   /* Hide Mega Menu on Mobile/Tablet */
   .megamenu {
     display: none !important;
   }
   
-  /* Keep Nav Menu on mobile */
-  .nav-menu {
-    display: none;
+  /* Product grid */
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
-  .nav-menu.active {
-    display: flex;
+
+  /* Hero content padding adjustment */
+  .hero-content {
+    padding: 6rem 1.5rem 0;
+  }
+
+  /* Button stack */
+  .hero-cta {
+    flex-direction: column;
+    align-items: center;
   }
 }
 
-/* Mobile: Hero height 60vh */
+/* Small Mobile */
 @media (max-width: 768px) {
-  .hero {
-    height: 60vh;
-  }
-
-  .hero-title {
-    font-size: 2.5rem;
-  }
-
   .section {
     padding: 5rem 0;
   }
@@ -71,19 +59,42 @@
   .container {
     padding: 0 16px;
   }
-}
 
-@media (max-width: 480px) {
-  .hero-title {
-    font-size: 2rem;
+  .hero-content {
+    padding: 6rem 1rem 0;
   }
 
   .hero-subtitle {
     font-size: 1rem;
   }
 
+  .hero-cta {
+    width: 100%;
+  }
+
+  .cta-primary, .cta-secondary {
+    width: 100%;
+    max-width: 300px;
+  }
+}
+
+/* Extra Small Mobile (320px) */
+@media (max-width: 480px) {
+  .hero-content {
+    padding: 7rem 1rem 0;
+  }
+
+  .hero-subtitle-top {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+
   .section-title {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
   .product-grid,
