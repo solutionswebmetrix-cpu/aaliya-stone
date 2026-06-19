@@ -191,7 +191,7 @@ const Home = () => {
                   <div className="stat-label">Years</div>
                 </div>
                 <div className="stat-item">
-                  <div className="stat-number">20+</div>
+                  <div className="stat-number">5</div>
                   <div className="stat-label">Categories</div>
                 </div>
               </div>

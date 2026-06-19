@@ -47,59 +47,11 @@ export const categories = [
   },
   {
     id: 5,
-    name: "Slate Stone",
-    slug: "slate-stone",
-    subcategories: []
-  },
-  {
-    id: 6,
-    name: "Travertine",
-    slug: "travertine",
-    subcategories: []
-  },
-  {
-    id: 7,
     name: "Basalt Stone",
     slug: "basalt-stone",
     subcategories: [
       { id: "sub-701", name: "Basalt", slug: "basalt" }
     ]
-  },
-  {
-    id: 8,
-    name: "Semi Precious Stone",
-    slug: "semi-precious-stone",
-    subcategories: []
-  },
-  {
-    id: 9,
-    name: "Interior Stone Products",
-    slug: "interior-stone-products",
-    subcategories: []
-  },
-  {
-    id: 10,
-    name: "Bathroom Stone Products",
-    slug: "bathroom-stone-products",
-    subcategories: []
-  },
-  {
-    id: 11,
-    name: "Architectural Stone Products",
-    slug: "architectural-stone-products",
-    subcategories: []
-  },
-  {
-    id: 12,
-    name: "Landscaping & Outdoor Stone",
-    slug: "landscaping-outdoor-stone",
-    subcategories: []
-  },
-  {
-    id: 13,
-    name: "Memorial Stone Products",
-    slug: "memorial-stone-products",
-    subcategories: []
   }
 ];
 
