@@ -1,11 +1,16 @@
 // Dynamically import all product images using Vite's import.meta.glob
 const productImages = import.meta.glob('../assets/Product/*.{png,jpg,jpeg}', { eager: true });
+const projectImages = import.meta.glob('../assets/Project/*.{png,jpg,jpeg}', { eager: true });
 
 // Create a map of filename to image module
 const productImageMap = {};
 for (const path in productImages) {
   const filename = path.split('/').pop();
   productImageMap[filename] = productImages[path].default;
+}
+for (const path in projectImages) {
+  const filename = path.split('/').pop();
+  productImageMap[filename] = projectImages[path].default;
 }
 
 const normalize = (value = '') => value.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();

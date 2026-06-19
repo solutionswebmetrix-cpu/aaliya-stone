@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Link } from 'react-router-dom';
-import { getAllProducts } from '../utils/data';
+import { featuredProducts } from '../utils/data';
 import { getProductImage } from '../utils/productImages';
 
 // Import banner images and about image
@@ -19,37 +19,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
   const heroRef = useRef(null);
-  const allProducts = getAllProducts();
-  // Get a mix of products from different categories (not just marble!)
-  const getMixedProducts = () => {
-    const categoryGroups = {};
-    allProducts.forEach(product => {
-      const cat = product.categorySlug;
-      if (!categoryGroups[cat]) categoryGroups[cat] = [];
-      categoryGroups[cat].push(product);
-    });
-    const mixed = [];
-    // Collect one product from each category until we have 9
-    let catIndex = 0;
-    const categories = Object.keys(categoryGroups);
-    while (mixed.length < 9 && categories.length > 0) {
-      const currentCat = categories[catIndex % categories.length];
-      if (categoryGroups[currentCat].length > 0) {
-        mixed.push(categoryGroups[currentCat].shift());
-      }
-      catIndex++;
-    }
-    // If we still need more, just add remaining products
-    if (mixed.length < 9) {
-      allProducts.forEach(product => {
-        if (!mixed.find(p => p.id === product.id) && mixed.length <9) {
-          mixed.push(product);
-        }
-      });
-    }
-    return mixed;
-  }
-  const products = getMixedProducts();
+  const products = featuredProducts;
   const loading = false;
 
   useEffect(() => {
@@ -107,15 +77,15 @@ const Home = () => {
   }, []);
 
   const interiorProducts = [
-    { name: 'Stone Fireplace', image: 'Stone Fireplaces.png', slug: 'stone-fireplaces' },
-    { name: 'Stone Bathtub', image: 'Stone Bathtubs.png', slug: 'stone-bathtubs' },
-    { name: 'Stone Column', image: 'Stone Columns.png', slug: 'stone-columns' },
-    { name: 'Stone Fountain', image: 'Stone Fountains.png', slug: 'stone-fountains' }
+    { name: 'Makrana White Marble', image: 'Makrana white marble.png', slug: 'makrana-white-marble' },
+    { name: 'Black Galaxy Granite', image: 'Black galaxy granite.png', slug: 'black-galaxy-granite' },
+    { name: 'Rainforest Brown Marble', image: 'Rainforest brown.png', slug: 'rainforest-brown-marble' },
+    { name: 'Basalt Stone', image: 'Basalt.png', slug: 'basalt' }
   ];
 
   const projects = [
-    { name: 'Luxury Villa', type: 'Residential', image: 'Hand-Carved Marble Water Fountain.png' },
-    { name: 'Five-Star Hotel', type: 'Hospitality', image: 'Hand-Carved White Marble Bathtub.png' },
+    { name: 'Luxury Villa', type: 'Residential', image: 'Blue Agate Stone Vanity Top.png' },
+    { name: 'Five-Star Hotel', type: 'Hospitality', image: 'Sandstone Garden Planters.png' },
     { name: 'Temple & Sacred Space', type: 'Religious', image: 'Luxury Hand-Carved Marble Mandir.png' }
   ];
 

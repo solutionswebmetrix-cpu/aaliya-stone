@@ -6,9 +6,13 @@ export const categories = [
     slug: "marble",
     subcategories: [
       { id: "sub-101", name: "Green Marble", slug: "green-marble" },
-      { id: "sub-102", name: "Fantasy Brown Marble", slug: "fantasy-brown-marble" },
-      { id: "sub-103", name: "Bhenslana Black Marble", slug: "bhenslana-black-marble" },
-      { id: "sub-104", name: "Udaipur Pink Marble", slug: "udaipur-pink-marble" }
+      { id: "sub-102", name: "Banswara White Marble", slug: "banswara-white-marble" },
+      { id: "sub-103", name: "Calcutta Viola Marble", slug: "calcutta-viola-marble" },
+      { id: "sub-104", name: "Katni Marble", slug: "katni-marble" },
+      { id: "sub-105", name: "Makrana White Marble", slug: "makrana-white-marble" },
+      { id: "sub-106", name: "Rainforest Brown Marble", slug: "rainforest-brown-marble" },
+      { id: "sub-107", name: "Rainforest Green Marble", slug: "rainforest-green-marble" },
+      { id: "sub-108", name: "Wonder Marble", slug: "wonder-marble" }
     ]
   },
   {
@@ -19,54 +23,92 @@ export const categories = [
       { id: "sub-201", name: "Absolute Black Granite", slug: "absolute-black-granite" },
       { id: "sub-202", name: "Black Galaxy Granite", slug: "black-galaxy-granite" },
       { id: "sub-203", name: "Kashmir White Granite", slug: "kashmir-white-granite" },
-      { id: "sub-204", name: "Colonial Cream Granite", slug: "colonial-cream-granite" },
+      { id: "sub-204", name: "Colonial White Granite", slug: "colonial-white-granite" },
       { id: "sub-205", name: "Sira Grey Granite", slug: "sira-grey-granite" },
-      { id: "sub-206", name: "Sadarahalli Grey Granite", slug: "sadarahalli-grey-granite" },
-      { id: "sub-207", name: "Crystal Blue Granite", slug: "crystal-blue-granite" },
-      { id: "sub-208", name: "Crystal Yellow Granite", slug: "crystal-yellow-granite" },
-      { id: "sub-209", name: "Crystal Brown Granite", slug: "crystal-brown-granite" },
-      { id: "sub-210", name: "P White Granite", slug: "p-white-granite" },
-      { id: "sub-211", name: "Rajasthan Black Granite", slug: "rajasthan-black-granite" },
-      { id: "sub-212", name: "Rosy Pink Granite", slug: "rosy-pink-granite" },
-      { id: "sub-213", name: "Chima Pink Granite", slug: "chima-pink-granite" },
-      { id: "sub-214", name: "Lakha Red Granite", slug: "lakha-red-granite" },
-      { id: "sub-215", name: "Gem Red Granite", slug: "gem-red-granite" },
-      { id: "sub-216", name: "Imperial Red Granite", slug: "imperial-red-granite" }
+      { id: "sub-206", name: "Crystal Blue Granite", slug: "crystal-blue-granite" },
+      { id: "sub-207", name: "Crystal Yellow Granite", slug: "crystal-yellow-granite" },
+      { id: "sub-208", name: "Crystal Brown Granite", slug: "crystal-brown-granite" },
+      { id: "sub-209", name: "Rajasthan Black Granite", slug: "rajasthan-black-granite" },
+      { id: "sub-210", name: "Chima Pink Granite", slug: "chima-pink-granite" },
+      { id: "sub-211", name: "Multi Red Granite", slug: "multi-red-granite" }
     ]
   },
   {
     id: 3,
     name: "Sandstone",
     slug: "sandstone",
-    subcategories: [
-      { id: "sub-301", name: "Red Sandstone", slug: "red-sandstone" },
-      { id: "sub-302", name: "Beige Sandstone", slug: "beige-sandstone" },
-      { id: "sub-303", name: "Gwalior Mint Sandstone", slug: "gwalior-mint-sandstone" },
-      { id: "sub-304", name: "Teak Sandstone", slug: "teak-sandstone" },
-      { id: "sub-305", name: "Rainbow Sandstone", slug: "rainbow-sandstone" },
-      { id: "sub-306", name: "Pink Sandstone", slug: "pink-sandstone" }
-    ]
+    subcategories: []
   },
   {
     id: 4,
     name: "Limestone",
     slug: "limestone",
-    subcategories: [
-      { id: "sub-401", name: "Jaisalmer Yellow Limestone", slug: "jaisalmer-yellow-limestone" },
-      { id: "sub-402", name: "Kota Limestone", slug: "kota-limestone" },
-      { id: "sub-403", name: "Bijolia Grey Limestone", slug: "bijolia-grey-limestone" },
-      { id: "sub-404", name: "Chittor Black Limestone", slug: "chittor-black-limestone" }
-    ]
+    subcategories: []
   },
   {
     id: 5,
+    name: "Slate Stone",
+    slug: "slate-stone",
+    subcategories: []
+  },
+  {
+    id: 6,
+    name: "Travertine",
+    slug: "travertine",
+    subcategories: []
+  },
+  {
+    id: 7,
     name: "Basalt Stone",
     slug: "basalt-stone",
     subcategories: [
       { id: "sub-701", name: "Basalt", slug: "basalt" }
     ]
+  },
+  {
+    id: 8,
+    name: "Semi Precious Stone",
+    slug: "semi-precious-stone",
+    subcategories: []
+  },
+  {
+    id: 9,
+    name: "Interior Stone Products",
+    slug: "interior-stone-products",
+    subcategories: []
+  },
+  {
+    id: 10,
+    name: "Bathroom Stone Products",
+    slug: "bathroom-stone-products",
+    subcategories: []
+  },
+  {
+    id: 11,
+    name: "Architectural Stone Products",
+    slug: "architectural-stone-products",
+    subcategories: []
+  },
+  {
+    id: 12,
+    name: "Landscaping & Outdoor Stone",
+    slug: "landscaping-outdoor-stone",
+    subcategories: []
+  },
+  {
+    id: 13,
+    name: "Memorial Stone Products",
+    slug: "memorial-stone-products",
+    subcategories: []
   }
 ];
+
+// Add category reference to each subcategory
+categories.forEach(category => {
+  category.subcategories.forEach(subcategory => {
+    subcategory.category = category;
+  });
+});
 
 // Helper to get category and subcategory for products
 const getCategory = (catSlug) => categories.find(c => c.slug === catSlug);
@@ -88,79 +130,179 @@ const productDefinitions = [
     images: ["Green marble.png"],
     category: getCategory("marble"),
     subcategory: getSubcategory("marble", "green-marble"),
-    description: "Green Marble is a beautiful natural stone with a rich green base and elegant white or gray veining, perfect for creating sophisticated interiors.",
-    features: ["Rich green base color", "Elegant white/gray veining", "Timeless appearance", "Durable and long-lasting"],
-    benefits: ["Adds natural beauty to interiors", "Perfect for both classic and modern designs", "Increases property value", "Easy to maintain"],
-    applications: ["Kitchen countertops", "Bathroom vanities", "Floor tiles", "Wall cladding", "Fireplace surrounds"],
+    shortDescription: "Beautiful natural stone with rich green base and elegant veining.",
+    description: "Green Marble is a stunning natural stone featuring a rich green base color adorned with elegant white and gray veining. Quarried from premium locations, this marble variety offers a sophisticated and timeless appearance that elevates any interior space.",
+    features: ["Rich green base color with natural variations", "Elegant white and gray veining patterns", "Highly durable and long-lasting material", "Smooth polished finish that enhances beauty", "Timeless aesthetic that complements any design"],
+    benefits: ["Adds natural beauty and sophistication to interiors", "Compatible with both classic and modern design styles", "Increases property value with premium natural stone", "Easy to maintain with proper care", "Unique veining ensures no two pieces are identical"],
+    applications: ["Kitchen countertops", "Bathroom vanities", "Floor tiles", "Wall cladding", "Fireplace surrounds", "Decorative accents"],
     maintenance: "Clean with pH-neutral cleaner, avoid harsh chemicals, wipe spills immediately, seal annually.",
-    whyChoose: "Green Marble offers a unique, elegant look that brings natural beauty to any space.",
-    seoTitle: "Green Marble | Elegant Natural Stone",
-    metaDescription: "Discover Green Marble. Rich green base with elegant veining, perfect for sophisticated interiors and luxury designs.",
+    whyChoose: "Green Marble offers a unique and elegant look that brings the beauty of nature into your space, creating a luxurious and sophisticated atmosphere.",
+    metaTitle: "Green Marble | Premium Natural Stone",
+    metaDescription: "Discover premium Green Marble with rich green base and elegant veining. Perfect for sophisticated interiors and luxury designs.",
+    keywords: ["Green Marble", "Marble", "Natural Stone", "Luxury Stone", "Interior Design"],
     imageAlt: "Elegant Green Marble with natural veining",
     tags: ["Green Marble", "Marble", "Natural Stone", "Luxury Stone"]
   },
   {
     id: 102,
-    name: "Fantasy Brown Marble",
-    slug: "fantasy-brown-marble",
+    name: "Banswara White Marble",
+    slug: "banswara-white-marble",
     categorySlug: "marble",
-    subcategorySlug: "fantasy-brown-marble",
-    image: "Rainforest brown.png",
-    images: ["Rainforest brown.png"],
+    subcategorySlug: "banswara-white-marble",
+    image: "Banswara white marble.png",
+    images: ["Banswara white marble.png"],
     category: getCategory("marble"),
-    subcategory: getSubcategory("marble", "fantasy-brown-marble"),
-    description: "Fantasy Brown Marble is a stunning stone with warm brown tones and intricate patterns that create a fantasy-like appearance.",
-    features: ["Warm brown base", "Intricate natural patterns", "Unique and exotic look", "High-quality material"],
-    benefits: ["Creates striking focal points", "Perfect for luxury projects", "Unique natural variations", "Timeless beauty"],
-    applications: ["Kitchen islands", "Feature walls", "Bathroom surrounds", "Flooring", "Tabletops"],
+    subcategory: getSubcategory("marble", "banswara-white-marble"),
+    shortDescription: "Pure white marble from Banswara, Rajasthan with subtle gray veining.",
+    description: "Banswara White Marble is a premium quality white marble quarried in Banswara, Rajasthan. Known for its pure white base and subtle gray veining, this marble is highly sought after for creating bright and elegant interiors.",
+    features: ["Pristine white base color", "Subtle gray veining for natural beauty", "Highly durable Indian marble", "Smooth polished finish", "Timeless and elegant appearance"],
+    benefits: ["Brightens up any interior space", "Perfect for both traditional and modern designs", "Premium Indian marble quality", "Easy to maintain and clean", "Adds elegance and value to property"],
+    applications: ["Flooring", "Wall cladding", "Kitchen countertops", "Bathroom vanities", "Tabletops", "Decorative elements"],
     maintenance: "Clean with pH-neutral cleaner, avoid harsh chemicals, wipe spills immediately, seal annually.",
-    whyChoose: "Fantasy Brown Marble brings an exotic, fantasy-like beauty to any interior space.",
-    seoTitle: "Fantasy Brown Marble | Exotic Natural Stone",
-    metaDescription: "Explore Fantasy Brown Marble. Warm brown tones with intricate patterns, perfect for creating exotic and luxurious interiors.",
-    imageAlt: "Exotic Fantasy Brown Marble with intricate patterns",
-    tags: ["Fantasy Brown Marble", "Marble", "Exotic Stone", "Luxury Stone"]
+    whyChoose: "Banswara White Marble offers a timeless, elegant look that creates bright and sophisticated interiors, perfect for any design style.",
+    metaTitle: "Banswara White Marble | Premium Indian Marble",
+    metaDescription: "Explore Banswara White Marble from Rajasthan. Pure white with subtle gray veining, perfect for elegant interiors.",
+    keywords: ["Banswara White Marble", "White Marble", "Indian Marble", "Natural Stone"],
+    imageAlt: "Premium Banswara White Marble with subtle gray veining",
+    tags: ["Banswara White Marble", "White Marble", "Indian Marble", "Natural Stone"]
   },
   {
     id: 103,
-    name: "Bhenslana Black Marble",
-    slug: "bhenslana-black-marble",
+    name: "Calcutta Viola Marble",
+    slug: "calcutta-viola-marble",
     categorySlug: "marble",
-    subcategorySlug: "bhenslana-black-marble",
-    image: "Black Granite.png",
-    images: ["Black Granite.png"],
+    subcategorySlug: "calcutta-viola-marble",
+    image: "Calcutta viola marble.png",
+    images: ["Calcutta viola marble.png"],
     category: getCategory("marble"),
-    subcategory: getSubcategory("marble", "bhenslana-black-marble"),
-    description: "Bhenslana Black Marble is a deep black marble with subtle white veining, perfect for creating bold, dramatic interiors.",
-    features: ["Deep black base", "Subtle white veining", "Bold and dramatic look", "Premium quality"],
-    benefits: ["Creates stunning contrast", "Perfect for modern designs", "Luxurious appearance", "High durability"],
-    applications: ["Kitchen countertops", "Bathroom vanities", "Feature walls", "Flooring", "Staircases"],
+    subcategory: getSubcategory("marble", "calcutta-viola-marble"),
+    shortDescription: "Luxurious marble with white base and striking purple-gray veining.",
+    description: "Calcutta Viola Marble is an exquisite natural stone featuring a bright white base with striking purple and gray veining. This luxurious marble variety adds a touch of opulence and sophistication to any interior space.",
+    features: ["Bright white base color", "Striking purple and gray veining", "Luxurious and exotic appearance", "Highly durable and premium quality", "Unique natural patterns"],
+    benefits: ["Creates stunning focal points in any space", "Perfect for luxury and high-end designs", "Unique natural variations ensure exclusivity", "Timeless beauty that never goes out of style", "Adds significant value to property"],
+    applications: ["Kitchen islands", "Feature walls", "Bathroom surrounds", "Flooring", "Tabletops", "Bar tops", "High-end decorative applications"],
     maintenance: "Clean with pH-neutral cleaner, avoid harsh chemicals, wipe spills immediately, seal annually.",
-    whyChoose: "Bhenslana Black Marble offers a bold, dramatic look that makes a strong statement.",
-    seoTitle: "Bhenslana Black Marble | Bold Dramatic Stone",
-    metaDescription: "Discover Bhenslana Black Marble. Deep black base with subtle white veining, perfect for bold and dramatic interiors.",
-    imageAlt: "Dramatic Bhenslana Black Marble with subtle white veining",
-    tags: ["Bhenslana Black Marble", "Black Marble", "Luxury Stone", "Dramatic Stone"]
+    whyChoose: "Calcutta Viola Marble offers a luxurious and exotic appearance that elevates any interior, creating a sophisticated and opulent atmosphere.",
+    metaTitle: "Calcutta Viola Marble | Luxury Exotic Stone",
+    metaDescription: "Discover Calcutta Viola Marble with white base and striking purple-gray veining. Perfect for luxury interiors.",
+    keywords: ["Calcutta Viola Marble", "Marble", "Luxury Stone", "Exotic Stone"],
+    imageAlt: "Luxurious Calcutta Viola Marble with purple-gray veining",
+    tags: ["Calcutta Viola Marble", "Marble", "Luxury Stone", "Exotic Stone"]
   },
   {
     id: 104,
-    name: "Udaipur Pink Marble",
-    slug: "udaipur-pink-marble",
+    name: "Katni Marble",
+    slug: "katni-marble",
     categorySlug: "marble",
-    subcategorySlug: "udaipur-pink-marble",
+    subcategorySlug: "katni-marble",
+    image: "Katni marble.png",
+    images: ["Katni marble.png"],
+    category: getCategory("marble"),
+    subcategory: getSubcategory("marble", "katni-marble"),
+    shortDescription: "Beautiful marble from Katni with warm tones and natural patterns.",
+    description: "Katni Marble is a beautiful natural stone quarried in Katni, Madhya Pradesh. Known for its warm tones and intricate natural patterns, this marble variety is perfect for creating cozy and inviting interiors.",
+    features: ["Warm beige and cream base tones", "Intricate natural patterns and veining", "High-quality Indian marble", "Durable and long-lasting", "Warm and inviting appearance"],
+    benefits: ["Adds warmth and coziness to interiors", "Perfect for traditional and rustic designs", "Affordable luxury with premium quality", "Easy to maintain and care for", "Unique natural patterns"],
+    applications: ["Flooring", "Wall cladding", "Kitchen countertops", "Bathroom vanities", "Fireplace surrounds", "Decorative elements"],
+    maintenance: "Clean with pH-neutral cleaner, avoid harsh chemicals, wipe spills immediately, seal annually.",
+    whyChoose: "Katni Marble offers a warm and inviting look that creates cozy interiors, perfect for homes and traditional design styles.",
+    metaTitle: "Katni Marble | Warm Natural Stone",
+    metaDescription: "Explore Katni Marble from Madhya Pradesh. Warm tones with natural patterns, perfect for cozy interiors.",
+    keywords: ["Katni Marble", "Marble", "Indian Marble", "Natural Stone"],
+    imageAlt: "Beautiful Katni Marble with warm tones and natural patterns",
+    tags: ["Katni Marble", "Marble", "Indian Marble", "Natural Stone"]
+  },
+  {
+    id: 105,
+    name: "Makrana White Marble",
+    slug: "makrana-white-marble",
+    categorySlug: "marble",
+    subcategorySlug: "makrana-white-marble",
     image: "Makrana white marble.png",
     images: ["Makrana white marble.png"],
     category: getCategory("marble"),
-    subcategory: getSubcategory("marble", "udaipur-pink-marble"),
-    description: "Udaipur Pink Marble is a beautiful pink marble quarried in Udaipur, Rajasthan, known for its soft pink color and elegant appearance.",
-    features: ["Soft pink base", "Subtle natural veining", "Elegant and timeless", "Premium Indian marble"],
-    benefits: ["Adds warmth to interiors", "Perfect for traditional designs", "Unique and rare", "Increases property value"],
-    applications: ["Flooring", "Wall cladding", "Temple construction", "Decorative items", "Tabletops"],
+    subcategory: getSubcategory("marble", "makrana-white-marble"),
+    shortDescription: "World-famous white marble from Makrana, used in the Taj Mahal.",
+    description: "Makrana White Marble is world-famous for its exceptional quality and pure white color. Quarried in Makrana, Rajasthan, this marble has been used in iconic monuments like the Taj Mahal, making it a symbol of luxury and timeless beauty.",
+    features: ["Pristine pure white color", "Fine grain and smooth texture", "World-famous premium quality", "Highly durable and long-lasting", "Timeless and elegant appearance"],
+    benefits: ["Iconic and prestigious marble variety", "Adds unmatched elegance to any space", "High resale value and investment worth", "Timeless beauty that lasts generations", "Easy to polish and maintain"],
+    applications: ["Flooring", "Wall cladding", "Kitchen countertops", "Bathroom vanities", "Tabletops", "Decorative sculptures", "High-end architectural projects"],
+    maintenance: "Clean with pH-neutral cleaner, avoid harsh chemicals, wipe spills immediately, polish regularly.",
+    whyChoose: "Makrana White Marble is the epitome of luxury and timeless beauty, offering unmatched quality and prestige that elevates any space to extraordinary levels.",
+    metaTitle: "Makrana White Marble | World-Famous Luxury Stone",
+    metaDescription: "Discover Makrana White Marble, the iconic stone used in the Taj Mahal. Premium quality white marble for luxury interiors.",
+    keywords: ["Makrana White Marble", "White Marble", "Luxury Stone", "Taj Mahal Marble"],
+    imageAlt: "Iconic Makrana White Marble, the stone of the Taj Mahal",
+    tags: ["Makrana White Marble", "White Marble", "Luxury Stone", "Taj Mahal Marble"]
+  },
+  {
+    id: 106,
+    name: "Rainforest Brown Marble",
+    slug: "rainforest-brown-marble",
+    categorySlug: "marble",
+    subcategorySlug: "rainforest-brown-marble",
+    image: "Rainforest brown.png",
+    images: ["Rainforest brown.png"],
+    category: getCategory("marble"),
+    subcategory: getSubcategory("marble", "rainforest-brown-marble"),
+    shortDescription: "Exotic marble with warm brown base and tree-like patterns.",
+    description: "Rainforest Brown Marble is an exotic natural stone featuring a warm brown base with intricate tree-like patterns that resemble a rainforest. This unique marble variety creates stunning focal points in any interior.",
+    features: ["Warm brown base color", "Intricate tree-like natural patterns", "Exotic and unique appearance", "Highly durable and premium quality", "Eye-catching and dramatic"],
+    benefits: ["Creates stunning and dramatic focal points", "Perfect for luxury and exotic designs", "Unique natural patterns ensure exclusivity", "Timeless beauty that stands out", "Adds luxury and sophistication"],
+    applications: ["Feature walls", "Kitchen islands", "Bathroom surrounds", "Flooring", "Tabletops", "Bar tops", "Luxury decorative accents"],
     maintenance: "Clean with pH-neutral cleaner, avoid harsh chemicals, wipe spills immediately, seal annually.",
-    whyChoose: "Udaipur Pink Marble offers a unique, elegant pink hue that brings warmth to any space.",
-    seoTitle: "Udaipur Pink Marble | Elegant Pink Stone",
-    metaDescription: "Explore Udaipur Pink Marble. Soft pink base with elegant veining, perfect for traditional and sophisticated interiors.",
-    imageAlt: "Elegant Udaipur Pink Marble with soft pink hue",
-    tags: ["Udaipur Pink Marble", "Pink Marble", "Indian Marble", "Luxury Stone"]
+    whyChoose: "Rainforest Brown Marble offers an exotic and unique appearance that transforms any space into a luxurious and dramatic environment.",
+    metaTitle: "Rainforest Brown Marble | Exotic Unique Stone",
+    metaDescription: "Explore Rainforest Brown Marble with warm brown base and tree-like patterns. Perfect for exotic luxury interiors.",
+    keywords: ["Rainforest Brown Marble", "Marble", "Exotic Stone", "Unique Stone"],
+    imageAlt: "Exotic Rainforest Brown Marble with tree-like patterns",
+    tags: ["Rainforest Brown Marble", "Marble", "Exotic Stone", "Unique Stone"]
+  },
+  {
+    id: 107,
+    name: "Rainforest Green Marble",
+    slug: "rainforest-green-marble",
+    categorySlug: "marble",
+    subcategorySlug: "rainforest-green-marble",
+    image: "Rainforest green.png",
+    images: ["Rainforest green.png"],
+    category: getCategory("marble"),
+    subcategory: getSubcategory("marble", "rainforest-green-marble"),
+    shortDescription: "Stunning marble with green base and rainforest-like patterns.",
+    description: "Rainforest Green Marble is a stunning natural stone featuring a rich green base with intricate rainforest-like patterns. This exotic marble variety brings the beauty of nature indoors, creating a refreshing and luxurious atmosphere.",
+    features: ["Rich green base color", "Intricate rainforest-like patterns", "Exotic and refreshing appearance", "Highly durable and premium quality", "Unique and eye-catching"],
+    benefits: ["Brings the beauty of nature indoors", "Creates refreshing and luxurious interiors", "Unique natural patterns ensure exclusivity", "Timeless beauty that stands out", "Adds sophistication and value"],
+    applications: ["Feature walls", "Kitchen countertops", "Bathroom vanities", "Flooring", "Tabletops", "Bar tops", "Luxury decorative elements"],
+    maintenance: "Clean with pH-neutral cleaner, avoid harsh chemicals, wipe spills immediately, seal annually.",
+    whyChoose: "Rainforest Green Marble offers an exotic and refreshing appearance that transforms any space into a luxurious, nature-inspired environment.",
+    metaTitle: "Rainforest Green Marble | Exotic Nature-Inspired Stone",
+    metaDescription: "Discover Rainforest Green Marble with rich green base and rainforest-like patterns. Perfect for nature-inspired luxury interiors.",
+    keywords: ["Rainforest Green Marble", "Marble", "Exotic Stone", "Nature-Inspired Stone"],
+    imageAlt: "Stunning Rainforest Green Marble with nature-inspired patterns",
+    tags: ["Rainforest Green Marble", "Marble", "Exotic Stone", "Nature-Inspired Stone"]
+  },
+  {
+    id: 108,
+    name: "Wonder Marble",
+    slug: "wonder-marble",
+    categorySlug: "marble",
+    subcategorySlug: "wonder-marble",
+    image: "Wonder marble.png",
+    images: ["Wonder marble.png"],
+    category: getCategory("marble"),
+    subcategory: getSubcategory("marble", "wonder-marble"),
+    shortDescription: "Beautiful marble with wonderous patterns and warm tones.",
+    description: "Wonder Marble is a beautiful natural stone featuring wonderous patterns and warm tones that create a magical appearance. This unique marble variety is perfect for creating enchanting and elegant interiors.",
+    features: ["Warm beige and cream tones", "Wonderous natural patterns", "Unique and magical appearance", "Highly durable and premium quality", "Elegant and timeless"],
+    benefits: ["Creates enchanting and magical interiors", "Perfect for elegant and unique designs", "Unique natural patterns ensure exclusivity", "Timeless beauty that lasts", "Adds elegance and value to property"],
+    applications: ["Flooring", "Wall cladding", "Kitchen countertops", "Bathroom vanities", "Fireplace surrounds", "Decorative elements"],
+    maintenance: "Clean with pH-neutral cleaner, avoid harsh chemicals, wipe spills immediately, seal annually.",
+    whyChoose: "Wonder Marble offers a unique and magical appearance that transforms any space into an enchanting and elegant environment.",
+    metaTitle: "Wonder Marble | Unique Magical Stone",
+    metaDescription: "Explore Wonder Marble with wonderous patterns and warm tones. Perfect for enchanting elegant interiors.",
+    keywords: ["Wonder Marble", "Marble", "Unique Stone", "Elegant Stone"],
+    imageAlt: "Beautiful Wonder Marble with wonderous patterns",
+    tags: ["Wonder Marble", "Marble", "Unique Stone", "Elegant Stone"]
   },
 
   // Granite
@@ -170,20 +312,22 @@ const productDefinitions = [
     slug: "absolute-black-granite",
     categorySlug: "granite",
     subcategorySlug: "absolute-black-granite",
-    image: "Black Granite.png",
-    images: ["Black Granite.png"],
+    image: "Absolute black granite.png",
+    images: ["Absolute black granite.png"],
     category: getCategory("granite"),
     subcategory: getSubcategory("granite", "absolute-black-granite"),
-    description: "Absolute Black Granite is a premium granite with a deep, uniform black color, perfect for creating sleek, modern interiors.",
-    features: ["Deep uniform black", "Highly polished finish", "Extremely durable", "Resistant to scratches"],
-    benefits: ["Sleek modern appearance", "Low maintenance", "Long-lasting durability", "Perfect for high-traffic areas"],
-    applications: ["Kitchen countertops", "Bathroom vanities", "Flooring", "Staircases", "Tabletops"],
+    shortDescription: "Premium black granite with deep uniform black color.",
+    description: "Absolute Black Granite is a premium natural stone featuring a deep, uniform black color with a highly polished finish. This granite variety is perfect for creating sleek, modern, and sophisticated interiors.",
+    features: ["Deep uniform black color", "Highly polished mirror-like finish", "Extremely durable and scratch-resistant", "Low porosity and water-resistant", "Sleek and modern appearance"],
+    benefits: ["Sleek modern appearance that complements any design", "Extremely low maintenance", "Highly durable for high-traffic areas", "Resistant to scratches, heat, and stains", "Timeless and sophisticated look"],
+    applications: ["Kitchen countertops", "Bathroom vanities", "Flooring", "Staircases", "Tabletops", "Bar tops", "Both interior and exterior"],
     maintenance: "Clean with mild soap and water, avoid harsh chemicals, wipe spills immediately.",
-    whyChoose: "Absolute Black Granite offers a sleek, modern look with exceptional durability.",
-    seoTitle: "Absolute Black Granite | Sleek Modern Stone",
-    metaDescription: "Discover Absolute Black Granite. Deep uniform black, perfect for sleek modern interiors and high-traffic areas.",
-    imageAlt: "Sleek Absolute Black Granite with uniform black color",
-    tags: ["Absolute Black Granite", "Black Granite", "Modern Stone", "Durable Stone"]
+    whyChoose: "Absolute Black Granite offers a sleek, modern look with exceptional durability, making it perfect for both residential and commercial applications.",
+    metaTitle: "Absolute Black Granite | Premium Modern Stone",
+    metaDescription: "Discover Absolute Black Granite with deep uniform black color. Perfect for sleek modern interiors and high-traffic areas.",
+    keywords: ["Absolute Black Granite", "Black Granite", "Granite", "Modern Stone"],
+    imageAlt: "Premium Absolute Black Granite with deep black color",
+    tags: ["Absolute Black Granite", "Black Granite", "Granite", "Modern Stone"]
   },
   {
     id: 202,
@@ -191,19 +335,21 @@ const productDefinitions = [
     slug: "black-galaxy-granite",
     categorySlug: "granite",
     subcategorySlug: "black-galaxy-granite",
-    image: "Black-texure Granite.png",
-    images: ["Black-texure Granite.png"],
+    image: "Black galaxy granite.png",
+    images: ["Black galaxy granite.png"],
     category: getCategory("granite"),
     subcategory: getSubcategory("granite", "black-galaxy-granite"),
-    description: "Black Galaxy Granite is a stunning granite with a black base and sparkling golden flecks, resembling a starry galaxy.",
-    features: ["Black base with golden flecks", "Sparkling galaxy-like appearance", "Highly durable", "Unique and exotic"],
-    benefits: ["Creates stunning focal points", "Perfect for luxury designs", "High durability", "Low maintenance"],
-    applications: ["Kitchen countertops", "Bathroom vanities", "Feature walls", "Tabletops", "Bar tops"],
+    shortDescription: "Stunning granite with black base and sparkling golden flecks.",
+    description: "Black Galaxy Granite is a stunning natural stone featuring a deep black base with sparkling golden and silver flecks that resemble a starry galaxy. This exotic granite variety creates breathtaking focal points in any space.",
+    features: ["Deep black base color", "Sparkling golden and silver flecks", "Galaxy-like sparkling appearance", "Highly durable and premium quality", "Exotic and eye-catching"],
+    benefits: ["Creates stunning and dramatic focal points", "Perfect for luxury and exotic designs", "Highly durable and low maintenance", "Unique sparkling appearance", "Adds luxury and sophistication"],
+    applications: ["Kitchen countertops", "Bathroom vanities", "Feature walls", "Tabletops", "Bar tops", "Luxury decorative applications"],
     maintenance: "Clean with mild soap and water, avoid harsh chemicals, wipe spills immediately.",
-    whyChoose: "Black Galaxy Granite offers a unique, sparkling appearance that resembles a starry night sky.",
-    seoTitle: "Black Galaxy Granite | Sparkling Exotic Stone",
-    metaDescription: "Explore Black Galaxy Granite. Black base with sparkling golden flecks, perfect for luxurious and exotic interiors.",
-    imageAlt: "Sparkling Black Galaxy Granite with golden flecks",
+    whyChoose: "Black Galaxy Granite offers a unique and sparkling appearance that transforms any space into a luxurious, starry environment.",
+    metaTitle: "Black Galaxy Granite | Sparkling Exotic Stone",
+    metaDescription: "Explore Black Galaxy Granite with black base and sparkling golden flecks. Perfect for luxury exotic interiors.",
+    keywords: ["Black Galaxy Granite", "Granite", "Exotic Stone", "Luxury Stone"],
+    imageAlt: "Stunning Black Galaxy Granite with sparkling golden flecks",
     tags: ["Black Galaxy Granite", "Granite", "Exotic Stone", "Luxury Stone"]
   },
   {
@@ -212,41 +358,45 @@ const productDefinitions = [
     slug: "kashmir-white-granite",
     categorySlug: "granite",
     subcategorySlug: "kashmir-white-granite",
-    image: "Gray granite.png",
-    images: ["Gray granite.png"],
+    image: "Kashmir white granite.png",
+    images: ["Kashmir white granite.png"],
     category: getCategory("granite"),
     subcategory: getSubcategory("granite", "kashmir-white-granite"),
-    description: "Kashmir White Granite is a beautiful white granite with gray and black specks, perfect for creating bright, elegant interiors.",
-    features: ["White base with gray/black specks", "Bright and elegant appearance", "Highly durable", "Versatile design"],
-    benefits: ["Brightens up interiors", "Perfect for both classic and modern designs", "Low maintenance", "High durability"],
-    applications: ["Kitchen countertops", "Bathroom vanities", "Flooring", "Wall cladding", "Tabletops"],
+    shortDescription: "Beautiful white granite with gray and black specks.",
+    description: "Kashmir White Granite is a beautiful natural stone featuring a white base with delicate gray and black specks. This granite variety is perfect for creating bright, clean, and elegant interiors.",
+    features: ["Bright white base color", "Delicate gray and black specks", "Clean and elegant appearance", "Highly durable and versatile", "Timeless and classic"],
+    benefits: ["Brightens up any interior space", "Perfect for both classic and modern designs", "Highly durable and low maintenance", "Versatile and complements any decor", "Adds elegance and value"],
+    applications: ["Kitchen countertops", "Bathroom vanities", "Flooring", "Wall cladding", "Tabletops", "Both residential and commercial"],
     maintenance: "Clean with mild soap and water, avoid harsh chemicals, wipe spills immediately.",
-    whyChoose: "Kashmir White Granite offers a bright, elegant look that complements any design style.",
-    seoTitle: "Kashmir White Granite | Bright Elegant Stone",
-    metaDescription: "Discover Kashmir White Granite. White base with gray and black specks, perfect for bright and elegant interiors.",
-    imageAlt: "Elegant Kashmir White Granite with gray and black specks",
+    whyChoose: "Kashmir White Granite offers a bright, clean, and elegant look that complements any design style, making it perfect for any space.",
+    metaTitle: "Kashmir White Granite | Bright Elegant Stone",
+    metaDescription: "Discover Kashmir White Granite with white base and gray-black specks. Perfect for bright elegant interiors.",
+    keywords: ["Kashmir White Granite", "White Granite", "Granite", "Elegant Stone"],
+    imageAlt: "Beautiful Kashmir White Granite with gray and black specks",
     tags: ["Kashmir White Granite", "White Granite", "Granite", "Elegant Stone"]
   },
   {
     id: 204,
-    name: "Colonial Cream Granite",
-    slug: "colonial-cream-granite",
+    name: "Colonial White Granite",
+    slug: "colonial-white-granite",
     categorySlug: "granite",
-    subcategorySlug: "colonial-cream-granite",
-    image: "Granite Polished charcoal.png",
-    images: ["Granite Polished charcoal.png"],
+    subcategorySlug: "colonial-white-granite",
+    image: "Colonial white granite.png",
+    images: ["Colonial white granite.png"],
     category: getCategory("granite"),
-    subcategory: getSubcategory("granite", "colonial-cream-granite"),
-    description: "Colonial Cream Granite is a warm cream-colored granite with subtle variations, perfect for creating cozy, inviting interiors.",
-    features: ["Warm cream base", "Subtle natural variations", "Timeless appearance", "Highly durable"],
-    benefits: ["Adds warmth to interiors", "Perfect for traditional designs", "Low maintenance", "High durability"],
-    applications: ["Kitchen countertops", "Bathroom vanities", "Flooring", "Wall cladding", "Fireplace surrounds"],
+    subcategory: getSubcategory("granite", "colonial-white-granite"),
+    shortDescription: "Warm white granite with subtle gray and black patterns.",
+    description: "Colonial White Granite is a warm and inviting natural stone featuring a white base with subtle gray and black patterns. This granite variety is perfect for creating cozy, traditional, and elegant interiors.",
+    features: ["Warm white base color", "Subtle gray and black patterns", "Warm and inviting appearance", "Highly durable and versatile", "Timeless and classic"],
+    benefits: ["Adds warmth and coziness to interiors", "Perfect for traditional and classic designs", "Highly durable and low maintenance", "Versatile and complements any decor", "Timeless and elegant look"],
+    applications: ["Kitchen countertops", "Bathroom vanities", "Flooring", "Wall cladding", "Fireplace surrounds", "Residential applications"],
     maintenance: "Clean with mild soap and water, avoid harsh chemicals, wipe spills immediately.",
-    whyChoose: "Colonial Cream Granite offers a warm, timeless look that creates cozy interiors.",
-    seoTitle: "Colonial Cream Granite | Warm Timeless Stone",
-    metaDescription: "Explore Colonial Cream Granite. Warm cream base with subtle variations, perfect for cozy and inviting interiors.",
-    imageAlt: "Warm Colonial Cream Granite with subtle variations",
-    tags: ["Colonial Cream Granite", "Cream Granite", "Granite", "Warm Stone"]
+    whyChoose: "Colonial White Granite offers a warm, inviting, and classic look that creates cozy and elegant interiors.",
+    metaTitle: "Colonial White Granite | Warm Classic Stone",
+    metaDescription: "Explore Colonial White Granite with warm white base and subtle patterns. Perfect for cozy traditional interiors.",
+    keywords: ["Colonial White Granite", "White Granite", "Granite", "Classic Stone"],
+    imageAlt: "Warm Colonial White Granite with subtle gray and black patterns",
+    tags: ["Colonial White Granite", "White Granite", "Granite", "Classic Stone"]
   },
   {
     id: 205,
@@ -254,414 +404,163 @@ const productDefinitions = [
     slug: "sira-grey-granite",
     categorySlug: "granite",
     subcategorySlug: "sira-grey-granite",
-    image: "Gray granite.png",
-    images: ["Gray granite.png"],
+    image: "Sira grey granite.png",
+    images: ["Sira grey granite.png"],
     category: getCategory("granite"),
     subcategory: getSubcategory("granite", "sira-grey-granite"),
-    description: "Sira Grey Granite is a sophisticated grey granite with natural patterns, perfect for creating modern, elegant interiors.",
-    features: ["Sophisticated grey base", "Natural patterns", "Modern appearance", "Highly durable"],
-    benefits: ["Perfect for modern designs", "Versatile and elegant", "Low maintenance", "High durability"],
-    applications: ["Kitchen countertops", "Bathroom vanities", "Flooring", "Wall cladding", "Tabletops"],
+    shortDescription: "Sophisticated grey granite with natural patterns.",
+    description: "Sira Grey Granite is a sophisticated natural stone featuring a grey base with natural patterns. This granite variety is perfect for creating modern, elegant, and contemporary interiors.",
+    features: ["Sophisticated grey base color", "Natural patterns and variations", "Modern and elegant appearance", "Highly durable and versatile", "Timeless and contemporary"],
+    benefits: ["Perfect for modern and contemporary designs", "Versatile and elegant", "Highly durable and low maintenance", "Complements any decor style", "Adds sophistication and value"],
+    applications: ["Kitchen countertops", "Bathroom vanities", "Flooring", "Wall cladding", "Tabletops", "Both residential and commercial"],
     maintenance: "Clean with mild soap and water, avoid harsh chemicals, wipe spills immediately.",
-    whyChoose: "Sira Grey Granite offers a sophisticated, modern look that complements any design.",
-    seoTitle: "Sira Grey Granite | Sophisticated Modern Stone",
-    metaDescription: "Discover Sira Grey Granite. Sophisticated grey base with natural patterns, perfect for modern and elegant interiors.",
+    whyChoose: "Sira Grey Granite offers a sophisticated, modern, and elegant look that complements any contemporary design style.",
+    metaTitle: "Sira Grey Granite | Sophisticated Modern Stone",
+    metaDescription: "Discover Sira Grey Granite with sophisticated grey base and natural patterns. Perfect for modern elegant interiors.",
+    keywords: ["Sira Grey Granite", "Grey Granite", "Granite", "Modern Stone"],
     imageAlt: "Sophisticated Sira Grey Granite with natural patterns",
     tags: ["Sira Grey Granite", "Grey Granite", "Granite", "Modern Stone"]
   },
   {
     id: 206,
-    name: "Sadarahalli Grey Granite",
-    slug: "sadarahalli-grey-granite",
-    categorySlug: "granite",
-    subcategorySlug: "sadarahalli-grey-granite",
-    image: "Gray granite.png",
-    images: ["Gray granite.png"],
-    category: getCategory("granite"),
-    subcategory: getSubcategory("granite", "sadarahalli-grey-granite"),
-    description: "Sadarahalli Grey Granite is a popular grey granite quarried in Karnataka, known for its consistent grey color and durability.",
-    features: ["Consistent grey base", "Highly durable", "Versatile application", "Indian granite"],
-    benefits: ["Perfect for both residential and commercial projects", "Low maintenance", "High durability", "Affordable luxury"],
-    applications: ["Flooring", "Kitchen countertops", "Wall cladding", "Staircases", "Paving"],
-    maintenance: "Clean with mild soap and water, avoid harsh chemicals, wipe spills immediately.",
-    whyChoose: "Sadarahalli Grey Granite offers consistent quality and durability at an affordable price.",
-    seoTitle: "Sadarahalli Grey Granite | Consistent Durable Stone",
-    metaDescription: "Explore Sadarahalli Grey Granite. Consistent grey base, perfect for both residential and commercial projects.",
-    imageAlt: "Consistent Sadarahalli Grey Granite",
-    tags: ["Sadarahalli Grey Granite", "Grey Granite", "Indian Granite", "Durable Stone"]
-  },
-  {
-    id: 207,
     name: "Crystal Blue Granite",
     slug: "crystal-blue-granite",
     categorySlug: "granite",
     subcategorySlug: "crystal-blue-granite",
-    image: "Blue Agate Basin.png",
-    images: ["Blue Agate Basin.png"],
+    image: "Crystal blue granite.png",
+    images: ["Crystal blue granite.png"],
     category: getCategory("granite"),
     subcategory: getSubcategory("granite", "crystal-blue-granite"),
-    description: "Crystal Blue Granite is a stunning granite with blue tones and crystal-like patterns, perfect for creating unique interiors.",
-    features: ["Blue tones with crystal patterns", "Unique and exotic", "Highly durable", "Eye-catching appearance"],
-    benefits: ["Creates unique focal points", "Perfect for luxury designs", "Low maintenance", "High durability"],
-    applications: ["Kitchen countertops", "Bathroom vanities", "Feature walls", "Tabletops", "Bar tops"],
+    shortDescription: "Stunning granite with blue tones and crystal-like patterns.",
+    description: "Crystal Blue Granite is a stunning natural stone featuring blue tones and crystal-like patterns. This exotic granite variety creates unique and eye-catching interiors that stand out.",
+    features: ["Beautiful blue tones", "Crystal-like patterns", "Unique and exotic appearance", "Highly durable and premium quality", "Eye-catching and dramatic"],
+    benefits: ["Creates unique and eye-catching focal points", "Perfect for luxury and exotic designs", "Highly durable and low maintenance", "Unique blue color and patterns", "Adds luxury and sophistication"],
+    applications: ["Kitchen countertops", "Bathroom vanities", "Feature walls", "Tabletops", "Bar tops", "Luxury decorative applications"],
     maintenance: "Clean with mild soap and water, avoid harsh chemicals, wipe spills immediately.",
-    whyChoose: "Crystal Blue Granite offers a unique, exotic look that stands out in any space.",
-    seoTitle: "Crystal Blue Granite | Unique Exotic Stone",
-    metaDescription: "Discover Crystal Blue Granite. Blue tones with crystal-like patterns, perfect for unique and exotic interiors.",
-    imageAlt: "Unique Crystal Blue Granite with blue tones and crystal patterns",
+    whyChoose: "Crystal Blue Granite offers a unique, exotic, and eye-catching appearance that transforms any space into a luxurious environment.",
+    metaTitle: "Crystal Blue Granite | Unique Exotic Stone",
+    metaDescription: "Explore Crystal Blue Granite with blue tones and crystal-like patterns. Perfect for unique exotic interiors.",
+    keywords: ["Crystal Blue Granite", "Blue Granite", "Granite", "Exotic Stone"],
+    imageAlt: "Stunning Crystal Blue Granite with blue tones and crystal patterns",
     tags: ["Crystal Blue Granite", "Blue Granite", "Granite", "Exotic Stone"]
   },
   {
-    id: 208,
+    id: 207,
     name: "Crystal Yellow Granite",
     slug: "crystal-yellow-granite",
     categorySlug: "granite",
     subcategorySlug: "crystal-yellow-granite",
-    image: "Polished granite.png",
-    images: ["Polished granite.png"],
+    image: "Crystal yellow granite.png",
+    images: ["Crystal yellow granite.png"],
     category: getCategory("granite"),
     subcategory: getSubcategory("granite", "crystal-yellow-granite"),
-    description: "Crystal Yellow Granite is a warm yellow granite with crystal-like patterns, perfect for creating bright, cheerful interiors.",
-    features: ["Warm yellow base", "Crystal-like patterns", "Bright and cheerful", "Highly durable"],
-    benefits: ["Brightens up interiors", "Perfect for warm designs", "Low maintenance", "High durability"],
-    applications: ["Kitchen countertops", "Bathroom vanities", "Flooring", "Wall cladding", "Tabletops"],
+    shortDescription: "Warm yellow granite with crystal-like patterns.",
+    description: "Crystal Yellow Granite is a warm and cheerful natural stone featuring a yellow base with crystal-like patterns. This granite variety is perfect for creating bright, sunny, and inviting interiors.",
+    features: ["Warm yellow base color", "Crystal-like patterns", "Bright and cheerful appearance", "Highly durable and versatile", "Warm and inviting"],
+    benefits: ["Brightens up any interior space", "Creates warm and cheerful interiors", "Highly durable and low maintenance", "Versatile and complements any decor", "Adds warmth and value"],
+    applications: ["Kitchen countertops", "Bathroom vanities", "Flooring", "Wall cladding", "Tabletops", "Residential applications"],
     maintenance: "Clean with mild soap and water, avoid harsh chemicals, wipe spills immediately.",
-    whyChoose: "Crystal Yellow Granite offers a bright, cheerful look that warms up any space.",
-    seoTitle: "Crystal Yellow Granite | Bright Cheerful Stone",
-    metaDescription: "Explore Crystal Yellow Granite. Warm yellow base with crystal-like patterns, perfect for bright and cheerful interiors.",
-    imageAlt: "Bright Crystal Yellow Granite with crystal-like patterns",
+    whyChoose: "Crystal Yellow Granite offers a warm, cheerful, and bright look that creates sunny and inviting interiors.",
+    metaTitle: "Crystal Yellow Granite | Warm Cheerful Stone",
+    metaDescription: "Discover Crystal Yellow Granite with warm yellow base and crystal-like patterns. Perfect for bright cheerful interiors.",
+    keywords: ["Crystal Yellow Granite", "Yellow Granite", "Granite", "Warm Stone"],
+    imageAlt: "Warm Crystal Yellow Granite with crystal-like patterns",
     tags: ["Crystal Yellow Granite", "Yellow Granite", "Granite", "Warm Stone"]
   },
   {
-    id: 209,
+    id: 208,
     name: "Crystal Brown Granite",
     slug: "crystal-brown-granite",
     categorySlug: "granite",
     subcategorySlug: "crystal-brown-granite",
-    image: "Rustic brown stone texture close-up.png",
-    images: ["Rustic brown stone texture close-up.png"],
+    image: "Crystal brown granite.png",
+    images: ["Crystal brown granite.png"],
     category: getCategory("granite"),
     subcategory: getSubcategory("granite", "crystal-brown-granite"),
-    description: "Crystal Brown Granite is a rich brown granite with crystal-like patterns, perfect for creating warm, inviting interiors.",
-    features: ["Rich brown base", "Crystal-like patterns", "Warm and inviting", "Highly durable"],
-    benefits: ["Adds warmth to interiors", "Perfect for cozy designs", "Low maintenance", "High durability"],
-    applications: ["Kitchen countertops", "Bathroom vanities", "Flooring", "Wall cladding", "Fireplace surrounds"],
+    shortDescription: "Rich brown granite with crystal-like patterns.",
+    description: "Crystal Brown Granite is a rich and inviting natural stone featuring a brown base with crystal-like patterns. This granite variety is perfect for creating warm, cozy, and rustic interiors.",
+    features: ["Rich brown base color", "Crystal-like patterns", "Warm and cozy appearance", "Highly durable and versatile", "Rustic and inviting"],
+    benefits: ["Adds warmth and coziness to interiors", "Perfect for rustic and traditional designs", "Highly durable and low maintenance", "Versatile and complements any decor", "Timeless and elegant look"],
+    applications: ["Kitchen countertops", "Bathroom vanities", "Flooring", "Wall cladding", "Fireplace surrounds", "Residential applications"],
     maintenance: "Clean with mild soap and water, avoid harsh chemicals, wipe spills immediately.",
-    whyChoose: "Crystal Brown Granite offers a warm, inviting look that creates cozy interiors.",
-    seoTitle: "Crystal Brown Granite | Warm Inviting Stone",
-    metaDescription: "Discover Crystal Brown Granite. Rich brown base with crystal-like patterns, perfect for warm and inviting interiors.",
-    imageAlt: "Warm Crystal Brown Granite with crystal-like patterns",
-    tags: ["Crystal Brown Granite", "Brown Granite", "Granite", "Warm Stone"]
+    whyChoose: "Crystal Brown Granite offers a warm, cozy, and rustic look that creates inviting and comfortable interiors.",
+    metaTitle: "Crystal Brown Granite | Warm Rustic Stone",
+    metaDescription: "Explore Crystal Brown Granite with rich brown base and crystal-like patterns. Perfect for warm rustic interiors.",
+    keywords: ["Crystal Brown Granite", "Brown Granite", "Granite", "Rustic Stone"],
+    imageAlt: "Rich Crystal Brown Granite with crystal-like patterns",
+    tags: ["Crystal Brown Granite", "Brown Granite", "Granite", "Rustic Stone"]
   },
   {
-    id: 210,
-    name: "P White Granite",
-    slug: "p-white-granite",
-    categorySlug: "granite",
-    subcategorySlug: "p-white-granite",
-    image: "Gray granite.png",
-    images: ["Gray granite.png"],
-    category: getCategory("granite"),
-    subcategory: getSubcategory("granite", "p-white-granite"),
-    description: "P White Granite is a beautiful white granite with subtle grey specks, perfect for creating bright, clean interiors.",
-    features: ["White base with subtle grey specks", "Bright and clean appearance", "Highly durable", "Versatile design"],
-    benefits: ["Brightens up interiors", "Perfect for modern designs", "Low maintenance", "High durability"],
-    applications: ["Kitchen countertops", "Bathroom vanities", "Flooring", "Wall cladding", "Tabletops"],
-    maintenance: "Clean with mild soap and water, avoid harsh chemicals, wipe spills immediately.",
-    whyChoose: "P White Granite offers a bright, clean look that complements any modern design.",
-    seoTitle: "P White Granite | Bright Clean Stone",
-    metaDescription: "Explore P White Granite. White base with subtle grey specks, perfect for bright and clean interiors.",
-    imageAlt: "Bright P White Granite with subtle grey specks",
-    tags: ["P White Granite", "White Granite", "Granite", "Modern Stone"]
-  },
-  {
-    id: 211,
+    id: 209,
     name: "Rajasthan Black Granite",
     slug: "rajasthan-black-granite",
     categorySlug: "granite",
     subcategorySlug: "rajasthan-black-granite",
-    image: "Black Granite.png",
-    images: ["Black Granite.png"],
+    image: "Rajasthan black granite.png",
+    images: ["Rajasthan black granite.png"],
     category: getCategory("granite"),
     subcategory: getSubcategory("granite", "rajasthan-black-granite"),
-    description: "Rajasthan Black Granite is a premium black granite quarried in Rajasthan, known for its deep black color and durability.",
-    features: ["Deep black base", "Premium Indian granite", "Highly durable", "Consistent quality"],
-    benefits: ["Perfect for luxury designs", "Low maintenance", "High durability", "Adds sophistication"],
-    applications: ["Kitchen countertops", "Bathroom vanities", "Flooring", "Staircases", "Tabletops"],
+    shortDescription: "Premium black granite quarried in Rajasthan, India.",
+    description: "Rajasthan Black Granite is a premium natural stone quarried in Rajasthan, India. Featuring a deep black color with subtle natural variations, this granite variety is perfect for creating luxurious and sophisticated interiors.",
+    features: ["Deep black base color", "Premium Indian granite quality", "Highly durable and consistent", "Sleek and modern appearance", "Timeless and elegant"],
+    benefits: ["Perfect for luxury and sophisticated designs", "Highly durable and low maintenance", "Premium Indian granite quality", "Adds sophistication and value", "Timeless and elegant look"],
+    applications: ["Kitchen countertops", "Bathroom vanities", "Flooring", "Staircases", "Tabletops", "Bar tops", "Both interior and exterior"],
     maintenance: "Clean with mild soap and water, avoid harsh chemicals, wipe spills immediately.",
-    whyChoose: "Rajasthan Black Granite offers premium quality and a deep black color that adds sophistication.",
-    seoTitle: "Rajasthan Black Granite | Premium Indian Stone",
-    metaDescription: "Discover Rajasthan Black Granite. Deep black base, premium Indian granite, perfect for luxurious interiors.",
-    imageAlt: "Premium Rajasthan Black Granite with deep black color",
+    whyChoose: "Rajasthan Black Granite offers premium quality and a deep black color that adds sophistication and luxury to any space.",
+    metaTitle: "Rajasthan Black Granite | Premium Indian Stone",
+    metaDescription: "Discover Rajasthan Black Granite, premium Indian black granite. Perfect for luxury sophisticated interiors.",
+    keywords: ["Rajasthan Black Granite", "Black Granite", "Indian Granite", "Premium Stone"],
+    imageAlt: "Premium Rajasthan Black Granite quarried in India",
     tags: ["Rajasthan Black Granite", "Black Granite", "Indian Granite", "Premium Stone"]
   },
   {
-    id: 212,
-    name: "Rosy Pink Granite",
-    slug: "rosy-pink-granite",
-    categorySlug: "granite",
-    subcategorySlug: "rosy-pink-granite",
-    image: "Red new granite.png",
-    images: ["Red new granite.png"],
-    category: getCategory("granite"),
-    subcategory: getSubcategory("granite", "rosy-pink-granite"),
-    description: "Rosy Pink Granite is a beautiful pink granite with rosy tones, perfect for creating warm, feminine interiors.",
-    features: ["Rosy pink base", "Warm and feminine", "Unique appearance", "Highly durable"],
-    benefits: ["Adds warmth to interiors", "Perfect for unique designs", "Low maintenance", "High durability"],
-    applications: ["Kitchen countertops", "Bathroom vanities", "Tabletops", "Decorative items", "Feature walls"],
-    maintenance: "Clean with mild soap and water, avoid harsh chemicals, wipe spills immediately.",
-    whyChoose: "Rosy Pink Granite offers a unique, warm pink hue that adds femininity to any space.",
-    seoTitle: "Rosy Pink Granite | Warm Feminine Stone",
-    metaDescription: "Explore Rosy Pink Granite. Rosy pink base, perfect for warm and feminine interiors.",
-    imageAlt: "Warm Rosy Pink Granite with rosy hue",
-    tags: ["Rosy Pink Granite", "Pink Granite", "Granite", "Warm Stone"]
-  },
-  {
-    id: 213,
+    id: 210,
     name: "Chima Pink Granite",
     slug: "chima-pink-granite",
     categorySlug: "granite",
     subcategorySlug: "chima-pink-granite",
-    image: "Red granite texture.png",
-    images: ["Red granite texture.png"],
+    image: "Chima pink granite.png",
+    images: ["Chima pink granite.png"],
     category: getCategory("granite"),
     subcategory: getSubcategory("granite", "chima-pink-granite"),
-    description: "Chima Pink Granite is a unique pink granite with distinctive patterns, perfect for creating eye-catching interiors.",
-    features: ["Pink base with distinctive patterns", "Unique and eye-catching", "Highly durable", "Versatile design"],
-    benefits: ["Creates eye-catching focal points", "Perfect for unique designs", "Low maintenance", "High durability"],
-    applications: ["Kitchen countertops", "Bathroom vanities", "Feature walls", "Tabletops", "Bar tops"],
+    shortDescription: "Unique pink granite with distinctive patterns.",
+    description: "Chima Pink Granite is a unique and eye-catching natural stone featuring a pink base with distinctive patterns. This granite variety is perfect for creating unique and feminine interiors.",
+    features: ["Beautiful pink base color", "Distinctive natural patterns", "Unique and eye-catching appearance", "Highly durable and versatile", "Warm and feminine"],
+    benefits: ["Creates unique and eye-catching focal points", "Perfect for feminine and unique designs", "Highly durable and low maintenance", "Unique pink color and patterns", "Adds warmth and value"],
+    applications: ["Kitchen countertops", "Bathroom vanities", "Feature walls", "Tabletops", "Decorative elements", "Residential applications"],
     maintenance: "Clean with mild soap and water, avoid harsh chemicals, wipe spills immediately.",
-    whyChoose: "Chima Pink Granite offers a unique, eye-catching look that stands out in any space.",
-    seoTitle: "Chima Pink Granite | Unique Eye-catching Stone",
-    metaDescription: "Discover Chima Pink Granite. Unique pink base with distinctive patterns, perfect for eye-catching interiors.",
+    whyChoose: "Chima Pink Granite offers a unique, eye-catching, and feminine appearance that creates beautiful and distinctive interiors.",
+    metaTitle: "Chima Pink Granite | Unique Eye-Catching Stone",
+    metaDescription: "Explore Chima Pink Granite with pink base and distinctive patterns. Perfect for unique feminine interiors.",
+    keywords: ["Chima Pink Granite", "Pink Granite", "Granite", "Unique Stone"],
     imageAlt: "Unique Chima Pink Granite with distinctive patterns",
     tags: ["Chima Pink Granite", "Pink Granite", "Granite", "Unique Stone"]
   },
   {
-    id: 214,
-    name: "Lakha Red Granite",
-    slug: "lakha-red-granite",
+    id: 211,
+    name: "Multi Red Granite",
+    slug: "multi-red-granite",
     categorySlug: "granite",
-    subcategorySlug: "lakha-red-granite",
-    image: "Shiny red granite.png",
-    images: ["Shiny red granite.png"],
+    subcategorySlug: "multi-red-granite",
+    image: "Multi red.png",
+    images: ["Multi red.png"],
     category: getCategory("granite"),
-    subcategory: getSubcategory("granite", "lakha-red-granite"),
-    description: "Lakha Red Granite is a vibrant red granite quarried in Rajasthan, known for its deep red color and durability.",
-    features: ["Deep vibrant red base", "Premium Indian granite", "Highly durable", "Striking appearance"],
-    benefits: ["Creates striking focal points", "Perfect for bold designs", "Low maintenance", "High durability"],
-    applications: ["Kitchen countertops", "Bathroom vanities", "Feature walls", "Flooring", "Tabletops"],
+    subcategory: getSubcategory("granite", "multi-red-granite"),
+    shortDescription: "Vibrant granite with multiple red tones and patterns.",
+    description: "Multi Red Granite is a vibrant and dynamic natural stone featuring multiple red tones and patterns. This granite variety is perfect for creating bold, dramatic, and eye-catching interiors.",
+    features: ["Vibrant multiple red tones", "Dynamic natural patterns", "Bold and dramatic appearance", "Highly durable and versatile", "Eye-catching and unique"],
+    benefits: ["Creates bold and dramatic focal points", "Perfect for vibrant and unique designs", "Highly durable and low maintenance", "Dynamic red tones and patterns", "Adds energy and value"],
+    applications: ["Kitchen countertops", "Bathroom vanities", "Feature walls", "Flooring", "Tabletops", "Bar tops", "Decorative applications"],
     maintenance: "Clean with mild soap and water, avoid harsh chemicals, wipe spills immediately.",
-    whyChoose: "Lakha Red Granite offers a vibrant, striking look that makes a bold statement.",
-    seoTitle: "Lakha Red Granite | Vibrant Bold Stone",
-    metaDescription: "Explore Lakha Red Granite. Deep vibrant red base, perfect for bold and striking interiors.",
-    imageAlt: "Vibrant Lakha Red Granite with deep red color",
-    tags: ["Lakha Red Granite", "Red Granite", "Indian Granite", "Bold Stone"]
-  },
-  {
-    id: 215,
-    name: "Gem Red Granite",
-    slug: "gem-red-granite",
-    categorySlug: "granite",
-    subcategorySlug: "gem-red-granite",
-    image: "Red granite texture.png",
-    images: ["Red granite texture.png"],
-    category: getCategory("granite"),
-    subcategory: getSubcategory("granite", "gem-red-granite"),
-    description: "Gem Red Granite is a rich red granite with gem-like patterns, perfect for creating luxurious interiors.",
-    features: ["Rich red base with gem-like patterns", "Luxurious appearance", "Highly durable", "Unique and exotic"],
-    benefits: ["Adds luxury to interiors", "Perfect for high-end designs", "Low maintenance", "High durability"],
-    applications: ["Kitchen countertops", "Bathroom vanities", "Feature walls", "Tabletops", "Bar tops"],
-    maintenance: "Clean with mild soap and water, avoid harsh chemicals, wipe spills immediately.",
-    whyChoose: "Gem Red Granite offers a luxurious, gem-like appearance that elevates any space.",
-    seoTitle: "Gem Red Granite | Luxurious Gem-like Stone",
-    metaDescription: "Discover Gem Red Granite. Rich red base with gem-like patterns, perfect for luxurious interiors.",
-    imageAlt: "Luxurious Gem Red Granite with gem-like patterns",
-    tags: ["Gem Red Granite", "Red Granite", "Granite", "Luxury Stone"]
-  },
-  {
-    id: 216,
-    name: "Imperial Red Granite",
-    slug: "imperial-red-granite",
-    categorySlug: "granite",
-    subcategorySlug: "imperial-red-granite",
-    image: "Red granite texture.png",
-    images: ["Red granite texture.png"],
-    category: getCategory("granite"),
-    subcategory: getSubcategory("granite", "imperial-red-granite"),
-    description: "Imperial Red Granite is a majestic red granite with imperial patterns, perfect for creating grand, luxurious interiors.",
-    features: ["Majestic red base", "Imperial patterns", "Grand and luxurious", "Highly durable"],
-    benefits: ["Creates grand focal points", "Perfect for luxury projects", "Low maintenance", "High durability"],
-    applications: ["Kitchen islands", "Feature walls", "Bathroom surrounds", "Flooring", "Tabletops"],
-    maintenance: "Clean with mild soap and water, avoid harsh chemicals, wipe spills immediately.",
-    whyChoose: "Imperial Red Granite offers a grand, majestic look that creates luxurious interiors.",
-    seoTitle: "Imperial Red Granite | Grand Majestic Stone",
-    metaDescription: "Explore Imperial Red Granite. Majestic red base with imperial patterns, perfect for grand and luxurious interiors.",
-    imageAlt: "Grand Imperial Red Granite with imperial patterns",
-    tags: ["Imperial Red Granite", "Red Granite", "Granite", "Luxury Stone"]
+    whyChoose: "Multi Red Granite offers a vibrant, bold, and dramatic appearance that creates dynamic and eye-catching interiors.",
+    metaTitle: "Multi Red Granite | Vibrant Dramatic Stone",
+    metaDescription: "Discover Multi Red Granite with multiple red tones and patterns. Perfect for bold dramatic interiors.",
+    keywords: ["Multi Red Granite", "Red Granite", "Granite", "Vibrant Stone"],
+    imageAlt: "Vibrant Multi Red Granite with multiple red tones",
+    tags: ["Multi Red Granite", "Red Granite", "Granite", "Vibrant Stone"]
   },
 
-  // Sandstone
-  {
-    id: 301,
-    name: "Red Sandstone",
-    slug: "red-sandstone",
-    categorySlug: "sandstone",
-    subcategorySlug: "red-sandstone",
-    image: "Reddish sandstone slabs in sunlight.png",
-    images: ["Reddish sandstone slabs in sunlight.png"],
-    category: getCategory("sandstone"),
-    subcategory: getSubcategory("sandstone", "red-sandstone"),
-    description: "Red Sandstone is a classic sandstone with a rich red color, perfect for both interior and exterior applications.",
-    features: ["Rich red base", "Classic appearance", "Weather-resistant", "Versatile"],
-    benefits: ["Perfect for both indoor and outdoor use", "Timeless look", "Durable and weather-resistant", "Easy to work with"],
-    applications: ["Flooring", "Wall cladding", "Paving", "Architectural elements", "Decorative items"],
-    maintenance: "Clean with mild soap and water, seal periodically for outdoor use.",
-    whyChoose: "Red Sandstone offers a classic, timeless look that works for both interior and exterior projects.",
-    seoTitle: "Red Sandstone | Classic Timeless Stone",
-    metaDescription: "Discover Red Sandstone. Rich red base, perfect for both interior and exterior applications.",
-    imageAlt: "Classic Red Sandstone with rich red color",
-    tags: ["Red Sandstone", "Sandstone", "Natural Stone", "Outdoor Stone"]
-  },
-  {
-    id: 302, name: "Beige Sandstone", slug: "beige-sandstone", categorySlug: "sandstone", subcategorySlug: "beige-sandstone",
-    image: "Naturally patterned sandstone slab.png", images: ["Naturally patterned sandstone slab.png"],
-    category: getCategory("sandstone"), subcategory: getSubcategory("sandstone", "beige-sandstone"),
-    description: "Beige Sandstone is a warm beige sandstone with natural patterns, perfect for creating cozy interiors.",
-    features: ["Warm beige base", "Natural patterns", "Cozy appearance", "Versatile"],
-    benefits: ["Adds warmth to interiors", "Perfect for cozy designs", "Durable", "Easy to maintain"],
-    applications: ["Flooring", "Wall cladding", "Fireplace surrounds", "Decorative items", "Paving"],
-    maintenance: "Clean with mild soap and water, seal periodically for outdoor use.",
-    whyChoose: "Beige Sandstone offers a warm, cozy look that creates inviting interiors.",
-    seoTitle: "Beige Sandstone | Warm Cozy Stone",
-    metaDescription: "Explore Beige Sandstone. Warm beige base with natural patterns, perfect for cozy interiors.",
-    imageAlt: "Warm Beige Sandstone with natural patterns",
-    tags: ["Beige Sandstone", "Sandstone", "Natural Stone", "Warm Stone"]
-  },
-  {
-    id: 303, name: "Gwalior Mint Sandstone", slug: "gwalior-mint-sandstone", categorySlug: "sandstone", subcategorySlug: "gwalior-mint-sandstone",
-    image: "Green granit.png", images: ["Green granit.png"],
-    category: getCategory("sandstone"), subcategory: getSubcategory("sandstone", "gwalior-mint-sandstone"),
-    description: "Gwalior Mint Sandstone is a unique mint green sandstone quarried in Gwalior, perfect for creating fresh interiors.",
-    features: ["Mint green base", "Unique and fresh", "Indian sandstone", "Durable"],
-    benefits: ["Creates fresh interiors", "Perfect for unique designs", "Durable", "Versatile"],
-    applications: ["Flooring", "Wall cladding", "Decorative items", "Paving", "Architectural elements"],
-    maintenance: "Clean with mild soap and water, seal periodically for outdoor use.",
-    whyChoose: "Gwalior Mint Sandstone offers a unique, fresh mint green hue that stands out.",
-    seoTitle: "Gwalior Mint Sandstone | Unique Fresh Stone",
-    metaDescription: "Discover Gwalior Mint Sandstone. Unique mint green base, perfect for fresh and unique interiors.",
-    imageAlt: "Unique Gwalior Mint Sandstone with mint green hue",
-    tags: ["Gwalior Mint Sandstone", "Sandstone", "Natural Stone", "Unique Stone"]
-  },
-  {
-    id: 304, name: "Teak Sandstone", slug: "teak-sandstone", categorySlug: "sandstone", subcategorySlug: "teak-sandstone",
-    image: "Rustic brown stone texture close-up.png", images: ["Rustic brown stone texture close-up.png"],
-    category: getCategory("sandstone"), subcategory: getSubcategory("sandstone", "teak-sandstone"),
-    description: "Teak Sandstone is a warm brown sandstone that resembles teak wood, perfect for creating natural interiors.",
-    features: ["Warm brown base", "Wood-like appearance", "Natural look", "Durable"],
-    benefits: ["Creates natural interiors", "Perfect for rustic designs", "Durable", "Versatile"],
-    applications: ["Flooring", "Wall cladding", "Paving", "Decorative items", "Furniture"],
-    maintenance: "Clean with mild soap and water, seal periodically for outdoor use.",
-    whyChoose: "Teak Sandstone offers a natural, wood-like appearance that creates warm interiors.",
-    seoTitle: "Teak Sandstone | Natural Wood-like Stone",
-    metaDescription: "Explore Teak Sandstone. Warm brown base with wood-like appearance, perfect for natural interiors.",
-    imageAlt: "Natural Teak Sandstone with wood-like appearance",
-    tags: ["Teak Sandstone", "Sandstone", "Natural Stone", "Rustic Stone"]
-  },
-  {
-    id: 305, name: "Rainbow Sandstone", slug: "rainbow-sandstone", categorySlug: "sandstone", subcategorySlug: "rainbow-sandstone",
-    image: "Colored Marble.png", images: ["Colored Marble.png"],
-    category: getCategory("sandstone"), subcategory: getSubcategory("sandstone", "rainbow-sandstone"),
-    description: "Rainbow Sandstone is a stunning sandstone with rainbow-like color variations, perfect for creating vibrant interiors.",
-    features: ["Rainbow-like color variations", "Stunning and vibrant", "Unique patterns", "Durable"],
-    benefits: ["Creates vibrant focal points", "Perfect for unique designs", "Durable", "Versatile"],
-    applications: ["Feature walls", "Flooring", "Decorative items", "Paving", "Architectural elements"],
-    maintenance: "Clean with mild soap and water, seal periodically for outdoor use.",
-    whyChoose: "Rainbow Sandstone offers a stunning, vibrant look with rainbow-like color variations.",
-    seoTitle: "Rainbow Sandstone | Stunning Vibrant Stone",
-    metaDescription: "Discover Rainbow Sandstone. Rainbow-like color variations, perfect for vibrant and unique interiors.",
-    imageAlt: "Stunning Rainbow Sandstone with rainbow-like color variations",
-    tags: ["Rainbow Sandstone", "Sandstone", "Natural Stone", "Vibrant Stone"]
-  },
-  {
-    id: 306, name: "Pink Sandstone", slug: "pink-sandstone", categorySlug: "sandstone", subcategorySlug: "pink-sandstone",
-    image: "Reddish sandstone slabs in sunlight.png", images: ["Reddish sandstone slabs in sunlight.png"],
-    category: getCategory("sandstone"), subcategory: getSubcategory("sandstone", "pink-sandstone"),
-    description: "Pink Sandstone is a beautiful pink sandstone, perfect for creating soft, elegant interiors.",
-    features: ["Soft pink base", "Elegant appearance", "Soft and feminine", "Durable"],
-    benefits: ["Adds elegance to interiors", "Perfect for soft designs", "Durable", "Versatile"],
-    applications: ["Flooring", "Wall cladding", "Decorative items", "Paving", "Architectural elements"],
-    maintenance: "Clean with mild soap and water, seal periodically for outdoor use.",
-    whyChoose: "Pink Sandstone offers a soft, elegant look that creates beautiful interiors.",
-    seoTitle: "Pink Sandstone | Soft Elegant Stone",
-    metaDescription: "Explore Pink Sandstone. Soft pink base, perfect for soft and elegant interiors.",
-    imageAlt: "Soft Pink Sandstone with elegant appearance",
-    tags: ["Pink Sandstone", "Sandstone", "Natural Stone", "Elegant Stone"]
-  },
-
-  // Limestone
-  {
-    id: 401, name: "Jaisalmer Yellow Limestone", slug: "jaisalmer-yellow-limestone", categorySlug: "limestone", subcategorySlug: "jaisalmer-yellow-limestone",
-    image: "Limestone-yellow-black.png", images: ["Limestone-yellow-black.png"],
-    category: getCategory("limestone"), subcategory: getSubcategory("limestone", "jaisalmer-yellow-limestone"),
-    description: "Jaisalmer Yellow Limestone is a warm yellow limestone quarried in Jaisalmer, Rajasthan, perfect for creating sunny interiors.",
-    features: ["Warm yellow base", "Indian limestone", "Timeless appearance", "Durable"],
-    benefits: ["Brightens up interiors", "Perfect for traditional designs", "Durable", "Versatile"],
-    applications: ["Flooring", "Wall cladding", "Paving", "Architectural elements", "Decorative items"],
-    maintenance: "Clean with mild soap and water, seal periodically for outdoor use.",
-    whyChoose: "Jaisalmer Yellow Limestone offers a warm, sunny look that brightens up any space.",
-    seoTitle: "Jaisalmer Yellow Limestone | Warm Sunny Stone",
-    metaDescription: "Discover Jaisalmer Yellow Limestone. Warm yellow base, perfect for sunny and traditional interiors.",
-    imageAlt: "Warm Jaisalmer Yellow Limestone with yellow hue",
-    tags: ["Jaisalmer Yellow Limestone", "Limestone", "Natural Stone", "Indian Stone"]
-  },
-  {
-    id: 402, name: "Kota Limestone", slug: "kota-limestone", categorySlug: "limestone", subcategorySlug: "kota-limestone",
-    image: "Limestone.png", images: ["Limestone.png"],
-    category: getCategory("limestone"), subcategory: getSubcategory("limestone", "kota-limestone"),
-    description: "Kota Limestone is a popular limestone quarried in Kota, Rajasthan, known for its durability and affordability.",
-    features: ["Grey/beige base", "Highly durable", "Affordable luxury", "Indian limestone"],
-    benefits: ["Perfect for both residential and commercial projects", "Low maintenance", "High durability", "Affordable"],
-    applications: ["Flooring", "Wall cladding", "Paving", "Staircases", "Tabletops"],
-    maintenance: "Clean with mild soap and water, seal periodically for outdoor use.",
-    whyChoose: "Kota Limestone offers durable, affordable luxury for any project.",
-    seoTitle: "Kota Limestone | Durable Affordable Stone",
-    metaDescription: "Explore Kota Limestone. Durable and affordable, perfect for both residential and commercial projects.",
-    imageAlt: "Kota Limestone with grey/beige base",
-    tags: ["Kota Limestone", "Limestone", "Natural Stone", "Indian Stone"]
-  },
-  {
-    id: 403, name: "Bijolia Grey Limestone", slug: "bijolia-grey-limestone", categorySlug: "limestone", subcategorySlug: "bijolia-grey-limestone",
-    image: "Limestone tile with layered texture.png", images: ["Limestone tile with layered texture.png"],
-    category: getCategory("limestone"), subcategory: getSubcategory("limestone", "bijolia-grey-limestone"),
-    description: "Bijolia Grey Limestone is a sophisticated grey limestone quarried in Bijolia, Rajasthan, perfect for creating elegant interiors.",
-    features: ["Sophisticated grey base", "Elegant appearance", "Indian limestone", "Durable"],
-    benefits: ["Adds elegance to interiors", "Perfect for modern designs", "Durable", "Versatile"],
-    applications: ["Flooring", "Wall cladding", "Tabletops", "Fireplace surrounds", "Paving"],
-    maintenance: "Clean with mild soap and water, seal periodically for outdoor use.",
-    whyChoose: "Bijolia Grey Limestone offers a sophisticated, elegant look that complements any design.",
-    seoTitle: "Bijolia Grey Limestone | Sophisticated Elegant Stone",
-    metaDescription: "Discover Bijolia Grey Limestone. Sophisticated grey base, perfect for elegant interiors.",
-    imageAlt: "Sophisticated Bijolia Grey Limestone with grey base",
-    tags: ["Bijolia Grey Limestone", "Limestone", "Natural Stone", "Elegant Stone"]
-  },
-  {
-    id: 404, name: "Chittor Black Limestone", slug: "chittor-black-limestone", categorySlug: "limestone", subcategorySlug: "chittor-black-limestone",
-    image: "Black Granite.png", images: ["Black Granite.png"],
-    category: getCategory("limestone"), subcategory: getSubcategory("limestone", "chittor-black-limestone"),
-    description: "Chittor Black Limestone is a deep black limestone quarried in Chittor, Rajasthan, perfect for creating bold interiors.",
-    features: ["Deep black base", "Bold appearance", "Indian limestone", "Durable"],
-    benefits: ["Creates bold focal points", "Perfect for modern designs", "Durable", "Versatile"],
-    applications: ["Flooring", "Wall cladding", "Tabletops", "Feature walls", "Paving"],
-    maintenance: "Clean with mild soap and water, seal periodically for outdoor use.",
-    whyChoose: "Chittor Black Limestone offers a bold, deep black look that makes a statement.",
-    seoTitle: "Chittor Black Limestone | Bold Black Stone",
-    metaDescription: "Explore Chittor Black Limestone. Deep black base, perfect for bold and modern interiors.",
-    imageAlt: "Bold Chittor Black Limestone with deep black color",
-    tags: ["Chittor Black Limestone", "Limestone", "Natural Stone", "Bold Stone"]
-  },
-
-  // Basalt Stone Product
+  // Basalt
   {
     id: 701,
     name: "Basalt",
@@ -669,59 +568,84 @@ const productDefinitions = [
     categorySlug: "basalt-stone",
     subcategorySlug: "basalt",
     image: "Basalt.png",
-    images: ["Basalt.png"],
+    images: ["Basalt.png", "Basalt 1.png"],
     category: getCategory("basalt-stone"),
     subcategory: getSubcategory("basalt-stone", "basalt"),
-    description: "Basalt is a natural volcanic rock with a beautiful dark, textured surface, ideal for both interior and exterior applications.",
-    features: ["Textured surface", "Natural volcanic rock", "Weather-resistant", "Durable"],
-    benefits: ["Perfect for outdoor use", "Natural rustic look", "Long-lasting", "Low maintenance"],
-    applications: ["Flooring", "Wall cladding", "Paving", "Landscaping", "Decorative elements"],
+    shortDescription: "Dark volcanic rock with fine-grained texture, perfect for modern designs.",
+    description: "Basalt is a dark volcanic rock with a fine-grained texture, formed from rapidly cooled lava. This natural stone is known for its durability, density, and sleek appearance, making it perfect for both interior and exterior applications.",
+    features: ["Dark gray to black color", "Fine-grained dense texture", "Extremely durable and hard", "Weather-resistant for outdoor use", "Modern and sleek appearance"],
+    benefits: ["Perfect for modern and contemporary designs", "Extremely durable and long-lasting", "Weather-resistant for outdoor use", "Low maintenance and easy to clean", "Adds modern sophistication to any space"],
+    applications: ["Flooring", "Wall cladding", "Paving", "Landscaping", "Architectural elements", "Kitchen countertops", "Both interior and exterior"],
     maintenance: "Clean with mild soap and water, seal periodically for outdoor use.",
-    whyChoose: "Basalt offers a natural, rustic look that adds character to any space.",
-    seoTitle: "Basalt | Natural Volcanic Stone",
-    metaDescription: "Discover Basalt. Natural volcanic rock with textured surface, perfect for interior and exterior use.",
-    imageAlt: "Basalt with natural volcanic texture",
-    tags: ["Basalt", "Basalt Stone", "Natural Stone", "Outdoor Stone"]
+    whyChoose: "Basalt offers a sleek, modern, and durable option for both interior and exterior applications, perfect for contemporary design styles.",
+    metaTitle: "Basalt | Dark Volcanic Rock for Modern Designs",
+    metaDescription: "Discover Basalt, dark volcanic rock with fine-grained texture. Perfect for modern interior and exterior designs.",
+    keywords: ["Basalt", "Volcanic Rock", "Natural Stone", "Modern Stone"],
+    imageAlt: "Dark Basalt volcanic rock with fine-grained texture",
+    tags: ["Basalt", "Volcanic Rock", "Natural Stone", "Modern Stone"]
   }
 ];
 
-// Helper functions to get categories, subcategories, products
+// Export all products
+export const products = productDefinitions;
+
+// Export all categories
 export const getAllCategories = () => categories;
-export const getCategoryBySlug = (slug) => categories.find(cat => cat.slug === slug);
+
+// Export all products
+export const getAllProducts = () => products;
+
+// Export featured products (9 products for home page)
+export const featuredProducts = [
+  products.find(p => p.id === 105), // Makrana White Marble
+  products.find(p => p.id === 201), // Absolute Black Granite
+  products.find(p => p.id === 202), // Black Galaxy Granite
+  products.find(p => p.id === 101), // Green Marble
+  products.find(p => p.id === 106), // Rainforest Brown Marble
+  products.find(p => p.id === 203), // Kashmir White Granite
+  products.find(p => p.id === 701), // Basalt
+  products.find(p => p.id === 103), // Calcutta Viola Marble
+  products.find(p => p.id === 205)  // Sira Grey Granite
+].filter(Boolean);
+
+// Helper functions to get products
+export const getProductBySlug = (slug) => products.find(p => p.slug === slug);
+export const getProductById = (id) => products.find(p => p.id === id);
+export const getProductsByCategory = (categorySlug) => products.filter(p => p.categorySlug === categorySlug);
+
+// Update getProductsBySubcategory to accept either (subSlug) or (catSlug, subSlug)
+export const getProductsBySubcategory = (catOrSubSlug, subSlug) => {
+  if (subSlug) {
+    return products.filter(p => p.categorySlug === catOrSubSlug && p.subcategorySlug === subSlug);
+  }
+  // If only one argument is passed, treat it as subSlug and search all categories
+  return products.filter(p => p.subcategorySlug === catOrSubSlug);
+};
+
+// Get category by slug
+export const getCategoryBySlug = (slug) => categories.find(c => c.slug === slug);
+
+// Find subcategory by slug
 export const findSubcategoryBySlug = (slug) => {
   for (const category of categories) {
-    const found = category.subcategories.find(sub => sub.slug === slug);
-    if (found) {
-      return { ...found, category };
-    }
+    const subcategory = category.subcategories.find(s => s.slug === slug);
+    if (subcategory) return subcategory;
   }
   return null;
 };
-export const getSubcategoryBySlug = (categorySlug, subcategorySlug) => {
-  const category = getCategoryBySlug(categorySlug);
-  return category?.subcategories.find(sub => sub.slug === subcategorySlug);
-};
 
-export const getAllProducts = () => productDefinitions;
-export const getProductBySlug = (slug) => productDefinitions.find(p => p.slug === slug);
-export const getProductsByCategory = (categorySlug) => productDefinitions.filter(p => p.categorySlug === categorySlug);
-export const getProductsBySubcategory = (subcategorySlug) => productDefinitions.filter(p => p.subcategorySlug === subcategorySlug);
+// Search function
 export const searchProducts = (query) => {
-  if (!query || query.trim() === '') return [];
-  
   const normalizedQuery = query.toLowerCase().trim();
+  if (!normalizedQuery) return [];
   
-  return productDefinitions.filter(product => {
-    const searchFields = [
-      product.name,
-      product.categorySlug,
-      product.subcategorySlug,
-      product.category?.name || '',
-      product.subcategory?.name || '',
-      product.description,
-      ...(product.tags || [])
-    ].join(' ').toLowerCase();
-    
-    return searchFields.includes(normalizedQuery);
+  return products.filter(product => {
+    return (
+      product.name.toLowerCase().includes(normalizedQuery) ||
+      (product.shortDescription && product.shortDescription.toLowerCase().includes(normalizedQuery)) ||
+      (product.keywords && product.keywords.some(keyword => keyword.toLowerCase().includes(normalizedQuery))) ||
+      (product.category?.name && product.category.name.toLowerCase().includes(normalizedQuery)) ||
+      (product.subcategory?.name && product.subcategory.name.toLowerCase().includes(normalizedQuery))
+    );
   });
 };
