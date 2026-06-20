@@ -84,8 +84,12 @@ const SubcategoryPage = () => {
               {products.map((product) => (
                 <Link key={product.id} to={`/product/${product.slug}`} className="product-card" style={{ textDecoration: 'none' }}>
                   <div className="product-image-wrapper">
-                    <img src={getProductImage(product.images[0], product.name)} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                  </div>
+                      {getProductImage(product.images[0], product.name) ? (
+                        <img src={getProductImage(product.images[0], product.name)} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      ) : (
+                        <div style={{ width: '100%', height: '100%', background: '#2a2a2a' }}></div>
+                      )}
+                    </div>
                   <div className="product-content">
                     <div className="product-category">{product.category?.name || ''}</div>
                     <h3 className="product-name">{product.name}</h3>

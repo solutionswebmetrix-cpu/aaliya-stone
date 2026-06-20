@@ -73,12 +73,16 @@ const ProductDetailPage = () => {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '60px', alignItems: 'start' }}>
             <div>
               <div style={{ aspectRatio: '1/1', background: '#1a1a1a', borderRadius: '8px', overflow: 'hidden', marginBottom: '20px' }}>
-                <img
-                  src={getProductImage(product.images[activeImage])}
-                  alt={product.imageAlt || product.name}
-                  loading="lazy"
-                  style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                />
+                {getProductImage(product.images[activeImage]) ? (
+                  <img
+                    src={getProductImage(product.images[activeImage])}
+                    alt={product.imageAlt || product.name}
+                    loading="lazy"
+                    style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                  />
+                ) : (
+                  <div style={{ width: '100%', height: '100%' }}></div>
+                )}
               </div>
               {product.imageCaption && (
                 <div className="image-caption">{product.imageCaption}</div>
@@ -99,11 +103,15 @@ const ProductDetailPage = () => {
                         padding: 0
                       }}
                     >
-                      <img
-                        src={getProductImage(img)}
-                        alt={`Thumbnail ${idx + 1}`}
-                        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
-                      />
+                      {getProductImage(img) ? (
+                        <img
+                          src={getProductImage(img)}
+                          alt={`Thumbnail ${idx + 1}`}
+                          style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+                        />
+                      ) : (
+                        <div style={{ width: '100%', height: '100%' }}></div>
+                      )}
                     </button>
                   ))}
                 </div>

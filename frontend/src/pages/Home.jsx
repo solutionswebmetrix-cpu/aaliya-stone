@@ -224,12 +224,10 @@ const Home = () => {
               products.map((product) => (
                 <Link key={product.id} to={`/product/${product.slug}`} className="product-card" style={{ textDecoration: 'none' }}>
                   <div className="product-image-wrapper">
-                    {product.images?.[0] ? (
+                    {product.images?.[0] && getProductImage(product.images[0]) ? (
                       <img src={getProductImage(product.images[0])} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
                     ) : (
-                      <div style={{ width: '100%', height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', background: '#2a2a2a' }}>
-                        <span style={{ color: '#666' }}>No Image</span>
-                      </div>
+                      <div style={{ width: '100%', height: '100%', background: '#2a2a2a' }}></div>
                     )}
                   </div>
                   <div className="product-content">

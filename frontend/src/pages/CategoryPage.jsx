@@ -104,17 +104,13 @@ const CategoryPage = () => {
                   const subImage = getSubcategoryImage(sub.slug);
                   return (
                     <Link key={sub.id} to={`/subcategory/${sub.slug}`} className="product-card" style={{ textDecoration: 'none' }}>
-                      <div className="product-image-wrapper" style={{ background: subImage ? 'transparent' : 'linear-gradient(135deg, #1a1a1a, #2a2a2a)' }}>
-                        {subImage ? (
-                          <img src={subImage} alt={sub.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                        ) : (
-                          <div style={{ color: 'var(--gold)', fontSize: '3rem', display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" width="64" height="64">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
-                            </svg>
-                          </div>
-                        )}
-                      </div>
+                      <div className="product-image-wrapper" style={{ background: subImage ? 'transparent' : '#2a2a2a' }}>
+                      {subImage ? (
+                        <img src={subImage} alt={sub.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      ) : (
+                        <div style={{ width: '100%', height: '100%' }}></div>
+                      )}
+                    </div>
                       <div className="product-content">
                         <div className="product-category">{category.name}</div>
                         <h3 className="product-name">{sub.name}</h3>
@@ -139,7 +135,11 @@ const CategoryPage = () => {
                 {products.map((product) => (
                   <Link key={product.id} to={`/product/${product.slug}`} className="product-card" style={{ textDecoration: 'none' }}>
                     <div className="product-image-wrapper">
-                      <img src={getProductImage(product.images[0], product.name)} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      {getProductImage(product.images[0], product.name) ? (
+                        <img src={getProductImage(product.images[0], product.name)} alt={product.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                      ) : (
+                        <div style={{ width: '100%', height: '100%', background: '#2a2a2a' }}></div>
+                      )}
                     </div>
                     <div className="product-content">
                       <div className="product-category">{product.category?.name || ''}</div>

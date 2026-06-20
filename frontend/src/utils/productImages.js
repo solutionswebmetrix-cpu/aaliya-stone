@@ -5,11 +5,13 @@ const projectImages = import.meta.glob('../assets/Project/*.{png,jpg,jpeg}', { e
 // Create a map of filename to image module
 const productImageMap = {};
 for (const path in productImages) {
-  const filename = path.split('/').pop();
+  // Handle both forward (/) and backward (\) slashes
+  const filename = path.replace(/^.*[\\/]/, '');
   productImageMap[filename] = productImages[path].default;
 }
 for (const path in projectImages) {
-  const filename = path.split('/').pop();
+  // Handle both forward (/) and backward (\) slashes
+  const filename = path.replace(/^.*[\\/]/, '');
   productImageMap[filename] = projectImages[path].default;
 }
 
@@ -35,7 +37,8 @@ const findBestMatchingImage = (value) => {
 export const getProductImage = (imagePathOrName, fallbackName) => {
   if (!imagePathOrName && !fallbackName) return null;
 
-  const filename = imagePathOrName?.split('/').pop();
+  // Handle both forward (/) and backward (\) slashes
+  const filename = imagePathOrName?.replace(/^.*[\\/]/, '');
   if (filename && productImageMap[filename]) {
     return productImageMap[filename];
   }
@@ -46,7 +49,7 @@ export const getProductImage = (imagePathOrName, fallbackName) => {
   const fallbackCandidate = findBestMatchingImage(fallbackName || imagePathOrName);
   if (fallbackCandidate) return fallbackCandidate;
 
-  return Object.values(productImageMap)[0] || null;
+  return null;
 };
 
 // Also export all images for convenience if needed
