@@ -8,11 +8,15 @@ import RequestQuoteModal from '../components/RequestQuoteModal';
 
 const ProductDetailPage = () => {
   const { slug, productSlug } = useParams();
-  const product = getProductBySlug(productSlug || slug);
+  const currentSlug = productSlug || slug;
+  const product = getProductBySlug(currentSlug);
   const [activeImage, setActiveImage] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
+    // Reset active image to 0 whenever product changes
+    setActiveImage(0);
+    
     if (!product) return;
 
     document.title = product.metaTitle || product.seoTitle || product.name;
@@ -34,7 +38,7 @@ const ProductDetailPage = () => {
     setMeta('og:title', product.ogTitle || product.name, true);
     setMeta('og:description', product.ogDescription || product.metaDescription || product.description, true);
     setMeta('og:image', product.images?.[0] ? getProductImage(product.images[0]) : '', true);
-  }, [product]);
+  }, [product, currentSlug]);
 
   if (!product) {
     return (
